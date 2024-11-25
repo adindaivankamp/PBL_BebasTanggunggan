@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Informasi Bebas Tanggungan - Home</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: url('image/BGPBL.png') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .header {
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-icons a {
+            width: 35px;
+            height: 35px;
+            background: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 300px 1fr 300px;
+            gap: 2rem;
+            padding: 0 2rem;
+            margin-top: 1rem;
+        }
+
+        .notification-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 1.5rem;
+        }
+
+        .notification-section h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .notification-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem;
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 0.8rem;
+        }
+
+        .notification-icon {
+            width: 40px;
+            height: 40px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .center-section {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: 2rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature-card img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+        }
+
+        .announcement-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .announcement-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+        }
+
+        .learn-more-btn {
+            display: inline-block;
+            background: #9CD919;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+
+        .status-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 1.5rem;
+        }
+
+        .status-item {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .status-button {
+            background: #9CD919;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .profile-popup {
+            position: absolute;
+            top: 80px;
+            right: 30px;
+            width: 280px;
+            background: #8BC34A;
+            border-radius: 15px;
+            padding: 20px;
+            display: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .profile-popup.show {
+            display: block;
+        }
+
+        .profile-picture {
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+        }
+
+        .profile-name {
+            color: black;
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profile-id {
+            color: black;
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .profile-menu-item {
+            background: white;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: none;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .profile-menu-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .profile-menu-item:hover {
+            background: #f0f0f0;
+        }
+
+        .logout-btn {
+            background: white;
+            border-radius: 8px;
+            padding: 8px;
+            margin-top: 10px;
+            text-align: center;
+            cursor: pointer;
+            width: 50%;
+            margin: 10px auto 0;
+            display: block;
+            border: none;
+            font-size: 14px;
+        }
+
+        .logout-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .modal-header {
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-body {
+            margin-bottom: 1rem;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .modal-button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .confirm-button {
+            background: #9CD919;
+            color: white;
+        }
+
+        .cancel-button {
+            background: #f0f0f0;
+        }
+
+        /* Form styles */
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="image/logoPolinema.png" alt="Logo Polinema">
+        </div>
+        <div class="nav-icons">
+            <a href="#" id="profileButton"><i class="fas fa-user"></i></a>
+        </div>
+    </header>
+
+    <div class="profile-popup" id="profilePopup">
+        <div class="profile-picture"></div>
+        <div class="profile-name">NAMA LENGKAP</div>
+        <div class="profile-id">2341760058</div>
+        <button class="profile-menu-item">D4-SISTEM INFORMASI BISNIS</button>
+        <button class="profile-menu-item">CHANGE PASS</button>
+        <button class="logout-btn">LOGOUT</button>
+    </div>
+
+    <main class="main-content">
+        <!-- Notification Section -->
+        <section class="notification-section">
+            <h2>Notifikasi</h2>
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <i class="fas fa-file"></i>
+                </div>
+                <div>
+                    <p>Skripsi/TA</p>
+                    <small>admin has approved the request</small>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div>
+                    <p>Perpustakaan</p>
+                    <small>admin has approved the request</small>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <i class="fas fa-folder"></i>
+                </div>
+                <div>
+                    <p>Berkas</p>
+                    <small>admin has approved the request</small>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <p>Akademik</p>
+                    <small>admin has approved the request</small>
+                </div>
+            </div>
+
+            <div class="modal" id="requestModal">
+                <div class="modal-content">
+                    <button class="close-button">&times;</button>
+                    <div class="modal-header">
+                        <h2>Submit Request</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="requestType">Request Type</label>
+                            <select id="requestType">
+                                <option value="">Select request type</option>
+                                <option value="skripsi">Skripsi/TA</option>
+                                <option value="perpustakaan">Perpustakaan</option>
+                                <option value="akademik">Akademik</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="requestDescription">Description</label>
+                            <textarea id="requestDescription" placeholder="Enter request details"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="modal-button cancel-button">Cancel</button>
+                        <button class="modal-button confirm-button">Submit Request</button>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Upload Modal -->
+            <div class="modal" id="uploadModal">
+                <div class="modal-content">
+                    <button class="close-button">&times;</button>
+                    <div class="modal-header">
+                        <h2>Upload Document</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="documentType">Document Type</label>
+                            <select id="documentType">
+                                <option value="">Select document type</option>
+                                <option value="skripsi">Skripsi/TA</option>
+                                <option value="berkas">Berkas</option>
+                                <option value="surat">Surat Keterangan</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="fileUpload">Choose File</label>
+                            <input type="file" id="fileUpload">
+                        </div>
+                        <div class="form-group">
+                            <label for="uploadNotes">Notes</label>
+                            <textarea id="uploadNotes" placeholder="Add any additional notes"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="modal-button cancel-button">Cancel</button>
+                        <button class="modal-button confirm-button">Upload</button>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Announcement Modal -->
+            <div class="modal" id="announcementModal">
+                <div class="modal-content">
+                    <button class="close-button">&times;</button>
+                    <div class="modal-header">
+                        <h2>Pengumuman</h2>
+                    </div>
+                    <div class="modal-body">
+                        <h3>Important Announcements</h3>
+                        <div class="form-group">
+                            <p>1. Deadline pengumpulan berkas: 30 November 2024</p>
+                            <p>2. Persyaratan bebas tanggungan harus diselesaikan sebelum wisuda</p>
+                            <p>3. Hubungi admin program studi untuk informasi lebih lanjut</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="modal-button confirm-button">OK</button>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Status View Modal -->
+            <div class="modal" id="statusModal">
+                <div class="modal-content">
+                    <button class="close-button">&times;</button>
+                    <div class="modal-header">
+                        <h2>Status Details</h2>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <h3>Status Information</h3>
+                            <p><strong>Type:</strong> <span id="statusType">-</span></p>
+                            <p><strong>Status:</strong> <span id="statusValue">-</span></p>
+                            <p><strong>Last Updated:</strong> <span id="statusDate">-</span></p>
+                            <p><strong>Notes:</strong> <span id="statusNotes">-</span></p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="modal-button confirm-button">Close</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Center Section -->
+        <section class="center-section">
+            <div class="features">
+                <a href="#" class="feature-card">
+                    <img src="image/request-icon.png" alt="Request">
+                    <h3>Request</h3>
+                </a>
+                <a href="#" class="feature-card">
+                    <img src="image/upload-icon.png" alt="Upload">
+                    <h3>Upload</h3>
+                </a>
+            </div>
+            <div class="announcement-card">
+                <img src="image/announcement-icon.png" alt="Pengumuman">
+                <div>
+                    <h2>Pengumuman</h2>
+                    <a href="#" class="learn-more-btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Section -->
+        <section class="status-section">
+            <h2>Status</h2>
+            <div class="status-item">
+                <span>Bebas tanggungan "Skripsi/TA"</span>
+                <a href="#" class="status-button">View</a>
+            </div>
+            <div class="status-item">
+                <span>Bebas tanggungan "Program Studi"</span>
+                <a href="#" class="status-button">View</a>
+            </div>
+            <div class="status-item">
+                <span>Bebas tanggungan "Akademik Pusat"</span>
+                <a href="#" class="status-button">View</a>
+            </div>
+            <div class="status-item">
+                <span>Bebas tanggungan "Perpustakaan"</span>
+                <a href="#" class="status-button">View</a>
+            </div>
+        </section>
+    </main>
+
+   <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileButton = document.getElementById('profileButton');
+            const profilePopup = document.getElementById('profilePopup');
+            
+            profileButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                profilePopup.classList.toggle('show');
+            });
+
+            // Close popup when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!profilePopup.contains(e.target) && 
+                    !profileButton.contains(e.target)) {
+                    profilePopup.classList.remove('show');
+                }
+            });
+
+            // Add click handlers for menu items
+            document.querySelectorAll('.profile-menu-item, .logout-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    console.log('Clicked:', this.textContent);
+                    // Add your handling logic here
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Previous profile popup logic remains the same
+
+            // Modal handling functions
+            function showModal(modalId) {
+                document.getElementById(modalId).classList.add('show');
+            }
+
+            function hideModal(modalId) {
+                document.getElementById(modalId).classList.remove('show');
+            }
+
+            // Request button
+            document.querySelector('.feature-card[href="#"]').addEventListener('click', function(e) {
+                e.preventDefault();
+                showModal('requestModal');
+            });
+
+            // Upload button
+            document.querySelectorAll('.feature-card')[1].addEventListener('click', function(e) {
+                e.preventDefault();
+                showModal('uploadModal');
+            });
+
+            // Learn More button
+            document.querySelector('.learn-more-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                showModal('announcementModal');
+            });
+
+            // Status View buttons
+            document.querySelectorAll('.status-button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const statusType = this.closest('.status-item').querySelector('span').textContent;
+                    document.getElementById('statusType').textContent = statusType;
+                    document.getElementById('statusValue').textContent = 'Pending';
+                    document.getElementById('statusDate').textContent = new Date().toLocaleDateString();
+                    document.getElementById('statusNotes').textContent = 'Awaiting admin approval';
+                    showModal('statusModal');
+                });
+            });
+
+            // Close buttons
+            document.querySelectorAll('.close-button, .cancel-button, .confirm-button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const modal = this.closest('.modal');
+                    hideModal(modal.id);
+                });
+            });
+
+            // Close modal when clicking outside
+            document.querySelectorAll('.modal').forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        hideModal(this.id);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
