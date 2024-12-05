@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <style>
+    /* Reset */
+    body, h2, p, button {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    body {
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      background-color: #7ac943;
+      border-radius: 15px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .profile-circle {
+      background-color: white;
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+    }
+
+    h2 {
+      color: white;
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .admin-number {
+      font-weight: bold;
+      color: black;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: block;
+      background-color: #f4ffe2;
+      border: none;
+      padding: 10px;
+      margin: 10px auto;
+      border-radius: 5px;
+      width: 80%;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #e8ffd5;
+    }
+
+    .logout {
+      background-color: #ffffff;
+    }
+
+    .logout:hover {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <div class="profile-circle"></div>
+    <h2>Nama siapa</h2>
+    <p class="admin-number">NOMER ADMIN</p>
+    <button class="btn" onclick="showSection()">BAGIAN APA</button>
+    <button class="btn" onclick="changePassword()">CHANGE PASS</button>
+    <button class="btn logout" onclick="logout()">Log Out</button>
+  </div>
+  <script>
+    function showSection() {
+      alert("Menampilkan bagian admin!");
+    }
+
+    function changePassword() {
+      alert("Fungsi untuk mengubah password admin.");
+    }
+
+    function logout() {
+      alert("Anda telah logout.");
+    }
+  </script>
+</body>
+</html>
