@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beranda Admin</title>
+  <style>
+    body {
+      background: url('Assets/BGPBL.png') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: flex-start;
+      padding: 10px;
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+    }
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .notifications,
+    .students {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      flex: 1;
+    }
+
+    h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .notif-item,
+    .search-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .notif-item p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .notif-item button,
+    .search-bar button {
+      background-color: #48c774;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .search-bar input {
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    thead {
+      background-color: #48c774;
+      color: white;
+    }
+
+    thead th,
+    tbody td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    tbody td button {
+      background-color: #48c774;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header class="header">
+      <img src="Assets/logoPolinema.png" alt="Logo" class="logo">
+    </header>
+
+    <div class="content">
+      <div class="notifications">
+        <h2>Notifikasi</h2>
+        <div class="notif-item">
+          <p>Student name M** requests for permission</p>
+          <span>9:41 AM</span>
+          <button>View</button>
+        </div>
+        <div class="notif-item">
+          <p>Student name M** has uploaded the document</p>
+          <span>9:41 AM</span>
+          <button>View</button>
+        </div>
+      </div>
+
+      <style>
+        .notifications {
+          background-color: rgba(255, 255, 255, 0.);
+          /* Putih dengan transparansi 90% */
+          border-radius: 12px;
+          /* Sudut melengkung */
+          padding: 20px;
+          box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+          /* Bayangan untuk efek kedalaman */
+        }
+
+        .notif-item {
+          background-color: rgba(72, 199, 116, 0.15);
+          /* Hijau muda transparan */
+          padding: 10px;
+          margin-bottom: 10px;
+          border-radius: 6px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .notif-item button {
+          background-color: rgba(35, 155, 77, 0.705);
+          /* Tombol hijau semi-transparan */
+          color: white;
+          border: none;
+          padding: 5px 10px;
+          border-radius: 4px;
+          cursor: pointer;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          /* Sedikit bayangan */
+        }
+
+        .notif-item button:hover {
+          background-color: rgba(72, 199, 116, 1);
+          /* Warna hijau penuh saat hover */
+        }
+      </style>
+
+      <div class="students">
+        <h2>Mahasiswa</h2>
+        <div class="search-bar">
+          <input type="text" placeholder="Ketikkan nama mahasiswa" id="searchInput">
+          <input type="text" placeholder="NIM" id="searchNIM">
+          <button id="searchButton">Search</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Nama Mahasiswa</th>
+              <th>NIM</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="studentsTable">
+            <!-- Data mahasiswa akan dimuat di sini -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Memuat data mahasiswa saat halaman dibuka
+    window.onload = function () {
+      fetch('beranda_admin_backend.php')
+        .then(response => response.json())
+        .then(data => {
+          if (data.status === 'success') {
+            const studentsTable = document.getElementById('studentsTable');
+            studentsTable.innerHTML = ''; // Bersihkan isi tabel
+
+            data.data.forEach(student => {
+              const row = `
+                <tr>
+                  <td>${student.Nama}</td>
+                  <td>${student.NIM}</td>
+                  <td><button>View</button></td>
+                </tr>
+              `;
+              studentsTable.innerHTML += row;
+            });
+          } else {
+            alert('Error: ' + data.message);
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    };
+
+    // Fungsi pencarian
+    document.getElementById("searchButton").addEventListener("click", function () {
+      const searchInput = document.getElementById("searchInput").value.toLowerCase();
+      const searchNIM = document.getElementById("searchNIM").value.toLowerCase();
+      const rows = document.querySelectorAll("#studentsTable tr");
+
+      rows.forEach(row => {
+        const name = row.cells[0].textContent.toLowerCase();
+        const nim = row.cells[1].textContent.toLowerCase();
+        row.style.display = (name.includes(searchInput) && nim.includes(searchNIM)) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+
+</html>
