@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Tugas Akhir</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('Assets/BGPBL.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Poppins', Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sidebar {
+            background-color: #C8F38F;
+            width: 80px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+        .sidebar img {
+            width: 50px;
+            margin-bottom: 30px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            font-size: 20px;
+            color: #3e923d;
+        }
+
+        .main-content {
+            margin-left: 100px;
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            width: 80%;
+            background-color: #8FD13C;
+            border-radius: 15px;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            background-color: #F7FFED;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group label {
+            font-size: 14px;
+            color: #3e923d;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            padding: 10px;
+            border: 1px solid #3e923d;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .form-group h2 {
+            text-align: center;
+            font-size: 16px;
+            color: #3e923d;
+            margin-bottom: 15px;
+        }
+
+        .form-group button {
+            background-color: #DFFBBC;
+            color: #3e923d;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .form-group button:hover {
+            background-color: #91d491;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            grid-column: span 2;
+        }
+
+        .action-buttons button {
+            width: 120px;
+            padding: 10px;
+            font-size: 14px;
+            background-color: #FFFFFE;
+            color: #3e923d;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .action-buttons button:hover {
+            background-color: #91d491;
+        }
+
+        h1 {
+            text-align: center;
+            grid-column: span 2;
+            color: #3e923d;
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <img src="Assets/logoPolinema.png" alt="Logo">
+        <ul>
+            <li><a href="#"><i class="fas fa-file"></i></a></li>
+            <li><a href="#"><i class="fas fa-book"></i></a></li>
+            <li><a href="#"><i class="fas fa-folder"></i></a></li>
+            <li><a href="#"><i class="fas fa-graduation-cap"></i></a></li>
+        </ul>
+    </aside>
+    <main class="main-content">
+        <div class="form-container">
+            <h1>Laporan Tugas Akhir</h1>
+            <div class="form-group">
+                <label for="id">Your ID</label>
+                <input type="text" id="id" placeholder="Enter your ID">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <h2>Laporan Tugas Akhir</h2>
+                <button>Upload</button>
+            </div>
+            <div class="form-group">
+                <label for="name">Your Full Name</label>
+                <input type="text" id="name" placeholder="Enter your full name">
+                <label for="nim">Your NIM</label>
+                <input type="text" id="nim" placeholder="Enter your NIM">
+                <label for="number">Your Number</label>
+                <input type="text" id="number" placeholder="Enter your number">
+            </div>
+            <div class="form-group">
+                <h2>Laporan Tugas Akhir</h2>
+                <button>Attach</button>
+            </div>
+            <div class="action-buttons">
+                <button>Send</button>
+                <button>Back</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

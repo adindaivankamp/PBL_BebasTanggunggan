@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Request</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      background-color: #d8f3dc;
+    }
+
+    .sidebar {
+      width: 80px;
+      background-color: #4caf50;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 0;
+    }
+
+    .sidebar img {
+      width: 60%;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .icon {
+      width: 40px;
+      height: 40px;
+      background-color: #ffffff;
+      margin: 10px 0;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .icon:hover {
+      background-color: #d8f3dc;
+    }
+
+    .content {
+      flex-grow: 1;
+      padding: 20px;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .form-container {
+      background-color: #eaf4e8;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-group button {
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .form-group button:hover {
+      background-color: #388e3c;
+    }
+
+    .form-upload {
+      text-align: center;
+      border: 2px dashed #4caf50;
+      padding: 20px;
+      border-radius: 10px;
+      color: #4caf50;
+      cursor: pointer;
+    }
+
+    .form-upload:hover {
+      background-color: #d8f3dc;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .form-actions button {
+      width: 48%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <img src="https://via.placeholder.com/50" alt="Logo">
+      <div class="icon" onclick="showPage('page1')">📄</div>
+      <div class="icon" onclick="showPage('page2')">📜</div>
+      <div class="icon" onclick="showPage('page3')">✅</div>
+      <div class="icon" onclick="showPage('page4')">💳</div>
+    </div>
+    <div class="content">
+      <!-- Page 1 -->
+      <div id="page1" class="page active">
+        <div class="form-container">
+          <h2>Laporan Tugas Akhir</h2>
+          <form>
+            <div class="form-group">
+              <label>Your ID</label>
+              <input type="text" placeholder="Enter Your ID">
+            </div>
+            <div class="form-group">
+              <label>Your Email</label>
+              <input type="email" placeholder="Enter Your Email">
+            </div>
+            <div class="form-group form-upload">
+              Laporan Tugas Akhir<br>📤 Upload
+            </div>
+            <div class="form-group">
+              <label>Your Full Name</label>
+              <input type="text" placeholder="Enter Your Full Name">
+            </div>
+            <div class="form-group">
+              <label>Your NIM</label>
+              <input type="text" placeholder="Enter Your NIM">
+            </div>
+            <div class="form-group">
+              <label>Your Number</label>
+              <input type="text" placeholder="Enter Your Number">
+            </div>
+            <div class="form-group form-upload">
+              Laporan Tugas Akhir<br>📎 Attach
+            </div>
+            <div class="form-actions">
+              <button type="submit">Send</button>
+              <button type="button">Back</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- Page 2 -->
+      <div id="page2" class="page">
+        <div class="form-container">
+          <h2>Surat Pernyataan Publikasi</h2>
+          <p>Isi halaman ini sesuai kebutuhan Anda.</p>
+        </div>
+      </div>
+      <!-- Page 3 -->
+      <div id="page3" class="page">
+        <div class="form-container">
+          <h2>Surat Keterangan Bebas Kompen</h2>
+          <p>Isi halaman ini sesuai kebutuhan Anda.</p>
+        </div>
+      </div>
+      <!-- Page 4 -->
+      <div id="page4" class="page">
+        <div class="form-container">
+          <h2>Surat Keterangan Pelunasan UKT</h2>
+          <p>Isi halaman ini sesuai kebutuhan Anda.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function showPage(pageId) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+
+      const selectedPage = document.getElementById(pageId);
+      selectedPage.classList.add('active');
+    }
+  </script>
+</body>
+</html>
