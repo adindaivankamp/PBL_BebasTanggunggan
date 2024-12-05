@@ -154,8 +154,21 @@
             <button type="submit">Sign In</button>
         </form>
         <div class="forgot-password">
-            Forgot your password? <a href="#">Reset Password</a>
-        </div>
+            Forgot your password? <a href="ForgotPass.html">Reset Password</a>
+        </div>        
     </div>
+    <script>
+        // Fungsi untuk mendapatkan nilai parameter dari URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+    
+        // Cek jika ada parameter "error"
+        const error = getQueryParam('error');
+        if (error === 'wrong_password') {
+            alert("Password yang Anda masukkan salah. Silakan coba lagi.");
+        }
+    </script>
 </body>
 </html>
