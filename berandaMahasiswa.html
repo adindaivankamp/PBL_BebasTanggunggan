@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem Informasi Bebas Tanggungan - Home</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 97%;
         }
 
         body {
@@ -19,6 +21,20 @@
             min-height: 100vh;
             position: relative;
         }
+
+        h1 {
+            font-weight: 600;
+        }
+
+        /* Adjusted font size */
+        .notification-section h1,
+        .center-section h1,
+        .status-section h1,
+        .announcement-card h1 {
+            font-size: 1.8rem;
+            color: #333;
+        }
+
 
         .header {
             padding: 1rem 2rem;
@@ -264,48 +280,147 @@
         }
 
         .modal-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 500px;
-            position: relative;
+          background: #7DB934;
+          padding: 2rem;
+          border-radius: 15px;
+          width: 90%;
+          max-width: 600px;
+          position: relative;
+          max-height: 80%; 
+          overflow-y: auto; 
         }
 
         .close-button {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #333;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 28px;
+        font-weight: bold;
+        color: #aaa;
+        background: none;
+        border: none;
+        cursor: pointer;
         }
 
+        .close-button:hover,
+        .close-button:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+        }
+
+      .upload-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+
+      .upload-option {
+        background-color: #f2f2f2;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
+
+      .upload-option:hover {
+        transform: scale(1.05);
+      }
+
+      .upload-icon {
+        font-size: 40px;
+        color: #333;
+        margin-bottom: 10px;
+      }
+
+      .upload-option h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .upload-button {
+        background-color: #9cd919;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .upload-button:hover {
+        background-color: #7db934;
+      }
+
         .modal-header {
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid #eee;
+          margin-bottom: 1rem;
+          padding-bottom: 0.5rem;
+          border-bottom: 1px solid #eee;
         }
 
         .modal-body {
-            margin-bottom: 1rem;
+          margin-bottom: 1rem;
+        }
+
+        .announcement-container {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .announcement-item {
+          background: white;
+          border-radius: 10px;
+          padding: 1rem;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .announcement-icon {
+          width: 60px;
+          height: 60px;
+          overflow: hidden;
+        }
+
+        .announcement-icon img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+
+        .announcement-details h3 {
+          color: #333;
+          margin-bottom: 0.5rem;
+        }
+
+        .learn-more-btn {
+          display: inline-block;
+          background: #9CD919;
+          color: white;
+          padding: 0.5rem 1rem;
+          border-radius: 5px;
+          text-decoration: none;
         }
 
         .modal-footer {
-            display: flex;
-            justify-content: flex-end;
-            gap: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #eee;
+          display: flex;
+          justify-content: flex-end;
+          padding-top: 1rem;
+          border-top: 1px solid #eee;
         }
 
         .modal-button {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+          padding: 0.5rem 1rem;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          background: #9CD919;
+          color: white;
         }
 
         .confirm-button {
@@ -317,7 +432,6 @@
             background: #f0f0f0;
         }
 
-        /* Form styles */
         .form-group {
             margin-bottom: 1rem;
         }
@@ -341,7 +455,29 @@
         .form-group textarea {
             min-height: 100px;
         }
+
+        .feature-card, 
+        .status-button, 
+        .learn-more-btn,
+        .nav-icons a,
+        .profile-menu-item,
+        .logout-btn,
+        .modal-button {
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .feature-card:hover, 
+        .status-button:hover, 
+        .learn-more-btn:hover,
+        .nav-icons a:hover,
+        .profile-menu-item:hover,
+        .logout-btn:hover,
+        .modal-button:hover {
+            transform: scale(1.05);
+        }
     </style>
+
 </head>
 <body>
     <header class="header">
@@ -357,15 +493,15 @@
         <div class="profile-picture"></div>
         <div class="profile-name">NAMA LENGKAP</div>
         <div class="profile-id">2341760058</div>
-        <button class="profile-menu-item">D4-SISTEM INFORMASI BISNIS</button>
-        <button class="profile-menu-item">CHANGE PASS</button>
-        <button class="logout-btn">LOGOUT</button>
+        <button class="profile-menu-item" id="changePassButton">CHANGE PASS</button>
+        <button class="profile-menu-item" id="studyProgramButton">D4-SISTEM INFORMASI BISNIS</button>
+        <button class="logout-btn" id="logoutButton">LOGOUT</button>
     </div>
 
     <main class="main-content">
-        <!-- Notification Section -->
+        <!-- Notification Section with existing modals -->
         <section class="notification-section">
-            <h2>Notifikasi</h2>
+            <h1>Notifikasi</h1>
             <div class="notification-item">
                 <div class="notification-icon">
                     <i class="fas fa-file"></i>
@@ -402,89 +538,123 @@
                     <small>admin has approved the request</small>
                 </div>
             </div>
-
-            <div class="modal" id="requestModal">
-                <div class="modal-content">
-                    <button class="close-button">&times;</button>
-                    <div class="modal-header">
-                        <h2>Submit Request</h2>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="requestType">Request Type</label>
-                            <select id="requestType">
-                                <option value="">Select request type</option>
-                                <option value="skripsi">Skripsi/TA</option>
-                                <option value="perpustakaan">Perpustakaan</option>
-                                <option value="akademik">Akademik</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="requestDescription">Description</label>
-                            <textarea id="requestDescription" placeholder="Enter request details"></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="modal-button cancel-button">Cancel</button>
-                        <button class="modal-button confirm-button">Submit Request</button>
-                    </div>
-                </div>
-            </div>
         
             <!-- Upload Modal -->
             <div class="modal" id="uploadModal">
                 <div class="modal-content">
-                    <button class="close-button">&times;</button>
-                    <div class="modal-header">
-                        <h2>Upload Document</h2>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label for="documentType">Document Type</label>
-                            <select id="documentType">
-                                <option value="">Select document type</option>
-                                <option value="skripsi">Skripsi/TA</option>
-                                <option value="berkas">Berkas</option>
-                                <option value="surat">Surat Keterangan</option>
-                            </select>
+                  <button class="close-button">&times;</button>
+                  <div class="modal-header">
+                    <h1>Upload</h1>
+                  </div>
+                  <div class="modal-body">
+                    <div class="upload-options">
+                      <div class="upload-option">
+                        <div class="upload-icon">
+                          <i class="fas fa-file"></i>
                         </div>
-                        <div class="form-group">
-                            <label for="fileUpload">Choose File</label>
-                            <input type="file" id="fileUpload">
+                        <h3>Upload Laporan Tugas Akhir/Skripsi</h3>
+                        <button class="upload-button">Upload</button>
+                      </div>
+                      <div class="upload-option">
+                        <div class="upload-icon">
+                          <i class="fas fa-file"></i>
                         </div>
-                        <div class="form-group">
-                            <label for="uploadNotes">Notes</label>
-                            <textarea id="uploadNotes" placeholder="Add any additional notes"></textarea>
+                        <h3>Upload Program/Aplikasi Tugas Akhir/Skripsi</h3>
+                        <button class="upload-button">Upload</button>
+                      </div>
+                      <div class="upload-option">
+                        <div class="upload-icon">
+                          <i class="fas fa-file"></i>
                         </div>
+                        <h3>Upload Surat Pernyataan Publikasi</h3>
+                        <button class="upload-button">Upload</button>
+                      </div>
+                      <div class="upload-option">
+                        <div class="upload-icon">
+                          <i class="fas fa-file"></i>
+                        </div>
+                        <h3>Upload Jurnal</h3>
+                        <button class="upload-button">Upload</button>
+                      </div>
+                      <div class="upload-option">
+                        <div class="upload-icon">
+                          <i class="fas fa-file"></i>
+                        </div>
+                        <h3>Upload Tanda Terima Penyerahan Laporan Skripsi</h3>
+                        <button class="upload-button">Upload</button>
+                      </div>
+                      <div class="upload-option">
+                        <div class="upload-icon">
+                          <i class="fas fa-file"></i>
+                        </div>
+                        <h3>Upload Tanda Terima Penyerahan Laporan PKL/Magang</h3>
+                        <button class="upload-button">Upload</button>
+                      </div>
+                      <div class="upload-option">
+                        <div class="upload-icon">
+                          <i class="fas fa-file"></i>
+                        </div>
+                        <h3>Upload Surat Bebas Kompen</h3>
+                        <button class="upload-button">Upload</button>
+                      </div>
+                      <div class="upload-option">
+                        <div class="upload-icon">
+                          <i class="fas fa-file"></i>
+                        </div>
+                        <h3>Upload Scan TOEIC</h3>
+                        <button class="upload-button">Upload</button>
+                      </div>
                     </div>
-                    <div class="modal-footer">
-                        <button class="modal-button cancel-button">Cancel</button>
-                        <button class="modal-button confirm-button">Upload</button>
-                    </div>
+                  </div>
                 </div>
-            </div>
-        
+              </div>
+
+              
+
             <!-- Announcement Modal -->
-            <div class="modal" id="announcementModal">
-                <div class="modal-content">
-                    <button class="close-button">&times;</button>
-                    <div class="modal-header">
-                        <h2>Pengumuman</h2>
-                    </div>
-                    <div class="modal-body">
-                        <h3>Important Announcements</h3>
-                        <div class="form-group">
-                            <p>1. Deadline pengumpulan berkas: 30 November 2024</p>
-                            <p>2. Persyaratan bebas tanggungan harus diselesaikan sebelum wisuda</p>
-                            <p>3. Hubungi admin program studi untuk informasi lebih lanjut</p>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="modal-button confirm-button">OK</button>
-                    </div>
-                </div>
-            </div>
-        
+         <div class="modal" id="announcementModal">
+  <div class="modal-content">
+    <button class="close-button">&times;</button>
+    <div class="modal-header">
+      <h1>Pengumuman</h1>
+    </div>
+    <div class="modal-body">
+      <div class="announcement-container">
+        <div class="announcement-item">
+          <div class="announcement-icon">
+            <img src="Assets/logoPolinema.png" alt="Form Laporan Tugas Akhir">
+          </div>
+          <div class="announcement-details">
+            <h3>Pengumuman</h3>
+            <a href="#" class="learn-more-btn">View</a>
+          </div>
+        </div>
+        <div class="announcement-item">
+          <div class="announcement-icon">
+            <img src="Assets/logoPolinema.png" alt="Form Pernyataan Bebas Kompen">
+          </div>
+          <div class="announcement-details">
+            <h3>Pengumuman</h3>
+            <a href="#" class="learn-more-btn">View</a>
+          </div>
+        </div>
+        <div class="announcement-item">
+          <div class="announcement-icon">
+            <img src="Assets/logoPolinema.png" alt="Form Surat Pernyataan Publikasi">
+          </div>
+          <div class="announcement-details">
+            <h3>Pengumuman</h3>
+            <a href="#" class="learn-more-btn">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-button confirm-button">OK</button>
+    </div>
+  </div>
+</div>
+
             <!-- Status View Modal -->
             <div class="modal" id="statusModal">
                 <div class="modal-content">
@@ -508,135 +678,158 @@
             </div>
         </section>
 
-        <!-- Center Section -->
-        <section class="center-section">
+         <!-- Center Section -->
+         <section class="center-section">
             <div class="features">
-                <a href="#" class="feature-card">
-                    <img src="Assets/request-icon.png" alt="Request">
-                    <h3>Request</h3>
+                <a href="#" class="feature-card" id="requestFeature">
+                    <h1>Request</h1>
+                    <img src="Assets/request.png" alt="Request">
                 </a>
-                <a href="#" class="feature-card">
-                    <img src="Assets/upload-icon.png" alt="Upload">
-                    <h3>Upload</h3>
+                <a href="#" class="feature-card" id="uploadFeature">
+                    <h1>Upload</h1>
+                    <img src="Assets/upload.png" alt="Upload">
                 </a>
             </div>
             <div class="announcement-card">
-                <img src="Assets/announcement-icon.png" alt="Pengumuman">
+                <img src="Assets/pengumuman.png" alt="Pengumuman">
                 <div>
-                    <h2>Pengumuman</h2>
-                    <a href="#" class="learn-more-btn">Learn More</a>
+                    <h1>Pengumuman</h1>
+                    <a href="#" class="learn-more-btn" id="learnMoreButton">Learn More</a>
                 </div>
             </div>
         </section>
 
         <!-- Status Section -->
         <section class="status-section">
-            <h2>Status</h2>
+            <h1>Status</h1>
             <div class="status-item">
                 <span>Bebas tanggungan "Skripsi/TA"</span>
-                <a href="#" class="status-button">View</a>
+                <a href="#" class="status-button" data-type="Skripsi/TA">View</a>
             </div>
             <div class="status-item">
                 <span>Bebas tanggungan "Program Studi"</span>
-                <a href="#" class="status-button">View</a>
+                <a href="#" class="status-button" data-type="Program Studi">View</a>
             </div>
             <div class="status-item">
                 <span>Bebas tanggungan "Akademik Pusat"</span>
-                <a href="#" class="status-button">View</a>
+                <a href="#" class="status-button" data-type="Akademik Pusat">View</a>
             </div>
             <div class="status-item">
                 <span>Bebas tanggungan "Perpustakaan"</span>
-                <a href="#" class="status-button">View</a>
+                <a href="#" class="status-button" data-type="Perpustakaan">View</a>
             </div>
         </section>
     </main>
 
-   <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const profileButton = document.getElementById('profileButton');
-            const profilePopup = document.getElementById('profilePopup');
-            
-            profileButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                profilePopup.classList.toggle('show');
-            });
+    <script>
+        // Profile Popup Functionality
+        const profileButton = document.getElementById('profileButton');
+        const profilePopup = document.getElementById('profilePopup');
 
-            // Close popup when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!profilePopup.contains(e.target) && 
-                    !profileButton.contains(e.target)) {
-                    profilePopup.classList.remove('show');
-                }
-            });
+        profileButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profilePopup.classList.toggle('show');
+        });
 
-            // Add click handlers for menu items
-            document.querySelectorAll('.profile-menu-item, .logout-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    console.log('Clicked:', this.textContent);
-                    // Add your handling logic here
-                });
+        document.addEventListener('click', (e) => {
+            if (!profilePopup.contains(e.target) && e.target !== profileButton) {
+                profilePopup.classList.remove('show');
+            }
+        });
+
+        // Modal Functionality
+        const modals = {
+            request: document.getElementById('requestModal'),
+            upload: document.getElementById('uploadModal'),
+            announcement: document.getElementById('announcementModal'),
+            status: document.getElementById('statusModal')
+        };
+
+        // Close buttons for all modals
+        document.querySelectorAll('.close-button').forEach(button => {
+            button.addEventListener('click', () => {
+                button.closest('.modal').classList.remove('show');
             });
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Previous profile popup logic remains the same
+        // Cancel buttons for all modals
+        document.querySelectorAll('.cancel-button').forEach(button => {
+            button.addEventListener('click', () => {
+                button.closest('.modal').classList.remove('show');
+            });
+        });
 
-            // Modal handling functions
-            function showModal(modalId) {
-                document.getElementById(modalId).classList.add('show');
-            }
+        // OK/Confirm buttons
+        document.querySelectorAll('.confirm-button').forEach(button => {
+            button.addEventListener('click', () => {
+                button.closest('.modal').classList.remove('show');
+            });
+        });
 
-            function hideModal(modalId) {
-                document.getElementById(modalId).classList.remove('show');
-            }
+        // Feature card interactions
+        document.getElementById('requestFeature').addEventListener('click', (e) => {
+            e.preventDefault();
+            modals.request.classList.add('show');
+        });
 
-            // Request button
-            document.querySelector('.feature-card[href="#"]').addEventListener('click', function(e) {
+        document.getElementById('uploadFeature').addEventListener('click', (e) => {
+            e.preventDefault();
+            modals.upload.classList.add('show');
+        });
+
+        document.getElementById('learnMoreButton').addEventListener('click', (e) => {
+            e.preventDefault();
+            modals.announcement.classList.add('show');
+        });
+
+        // Status view buttons
+        document.querySelectorAll('.status-button').forEach(button => {
+            button.addEventListener('click', (e) => {
                 e.preventDefault();
-                showModal('requestModal');
-            });
+                const type = button.getAttribute('data-type');
+                
+                // Populate status modal with dynamic content
+                document.getElementById('statusType').textContent = type;
+                document.getElementById('statusValue').textContent = 'Approved';
+                document.getElementById('statusDate').textContent = new Date().toLocaleDateString();
+                document.getElementById('statusNotes').textContent = `Status for ${type} has been processed.`;
 
-            // Upload button
-            document.querySelectorAll('.feature-card')[1].addEventListener('click', function(e) {
-                e.preventDefault();
-                showModal('uploadModal');
+                modals.status.classList.add('show');
             });
+        });
 
-            // Learn More button
-            document.querySelector('.learn-more-btn').addEventListener('click', function(e) {
-                e.preventDefault();
-                showModal('announcementModal');
-            });
+        // Profile popup additional interactions
+        document.getElementById('changePassButton').addEventListener('click', () => {
+            alert('Change Password functionality to be implemented');
+        });
 
-            // Status View buttons
-            document.querySelectorAll('.status-button').forEach(button => {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const statusType = this.closest('.status-item').querySelector('span').textContent;
-                    document.getElementById('statusType').textContent = statusType;
-                    document.getElementById('statusValue').textContent = 'Pending';
-                    document.getElementById('statusDate').textContent = new Date().toLocaleDateString();
-                    document.getElementById('statusNotes').textContent = 'Awaiting admin approval';
-                    showModal('statusModal');
-                });
-            });
+        document.getElementById('studyProgramButton').addEventListener('click', () => {
+            alert('Study Program details to be implemented');
+        });
 
-            // Close buttons
-            document.querySelectorAll('.close-button, .cancel-button, .confirm-button').forEach(button => {
-                button.addEventListener('click', function() {
-                    const modal = this.closest('.modal');
-                    hideModal(modal.id);
-                });
-            });
+        document.getElementById('logoutButton').addEventListener('click', () => {
+            alert('Logout functionality to be implemented');
+        });
 
-            // Close modal when clicking outside
-            document.querySelectorAll('.modal').forEach(modal => {
-                modal.addEventListener('click', function(e) {
-                    if (e.target === this) {
-                        hideModal(this.id);
-                    }
-                });
-            });
+        // Modal Functionality
+        const modal = document.getElementById("uploadModal");
+        const closeButton = document.querySelector(".close-button");
+        const uploadButtons = document.querySelectorAll(".upload-button");
+
+        // Open the modal
+        document.querySelectorAll(".upload-option").forEach((option) => {
+          option.addEventListener("click", () => {
+            modal.style.display = "block";
+          });
+        });
+
+        // Handle upload button clicks
+        uploadButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Implement your upload logic here
+            console.log("Upload button clicked");
+            modal.style.display = "none";
+          });
         });
     </script>
 </body>

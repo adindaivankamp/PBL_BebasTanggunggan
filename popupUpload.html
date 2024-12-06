@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrollable Pop-up Example</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Pop-up Overlay */
+        .popup {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Pop-up Content */
+        .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            max-height: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow: hidden;
+        }
+
+        /* Scrollable Content */
+        .scrollable-content {
+            overflow-y: auto;
+            height: 200px;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        /* Display Pop-up */
+        .popup.show {
+            display: flex;
+        }
+
+        /* Close Button */
+        .close-btn {
+            background-color: #dc3545;
+        }
+
+        .close-btn:hover {
+            background-color: #a71d2a;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Button to Open Pop-up -->
+    <button id="openPopupBtn">Open Upload Pop-up</button>
+
+    <!-- Pop-up 1 -->
+    <div id="popup1" class="popup">
+        <div class="popup-content">
+            <h2>Upload Files</h2>
+            <div class="scrollable-content">
+                <!-- Scrollable Content -->
+                <p>File 1</p>
+                <p>File 2</p>
+                <p>File 3</p>
+                <p>File 4</p>
+                <p>File 5</p>
+                <p>File 6</p>
+                <p>File 7</p>
+                <p>File 8</p>
+                <p>File 9</p>
+                <p>File 10</p>
+            </div>
+            <button id="uploadBtn">Upload</button>
+            <button id="closePopup1Btn" class="close-btn">Close</button>
+        </div>
+    </div>
+
+    <!-- Pop-up 2 -->
+    <div id="popup2" class="popup">
+        <div class="popup-content">
+            <h2>Upload Confirmation</h2>
+            <p>Your files are being uploaded...</p>
+            <button id="closePopup2Btn" class="close-btn">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Get Elements
+        const openPopupBtn = document.getElementById("openPopupBtn");
+        const popup1 = document.getElementById("popup1");
+        const popup2 = document.getElementById("popup2");
+        const closePopup1Btn = document.getElementById("closePopup1Btn");
+        const closePopup2Btn = document.getElementById("closePopup2Btn");
+        const uploadBtn = document.getElementById("uploadBtn");
+
+        // Open Pop-up 1
+        openPopupBtn.addEventListener("click", () => {
+            popup1.classList.add("show");
+        });
+
+        // Close Pop-up 1
+        closePopup1Btn.addEventListener("click", () => {
+            popup1.classList.remove("show");
+        });
+
+        // Open Pop-up 2
+        uploadBtn.addEventListener("click", () => {
+            popup1.classList.remove("show");
+            popup2.classList.add("show");
+        });
+
+        // Close Pop-up 2
+        closePopup2Btn.addEventListener("click", () => {
+            popup2.classList.remove("show");
+        });
+    </script>
+</body>
+</html>
