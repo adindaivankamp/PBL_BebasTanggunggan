@@ -8,9 +8,9 @@ class User {
         $this->conn = $this->db->connect();
     }
 
-    public function login_admin($nim, $password) {
-        $sql = "SELECT * FROM dbo.admin_login WHERE nim = ?";
-        $params = [$nim];
+    public function login_admin($NIP, $password) {
+        $sql = "SELECT * FROM dbo.admin WHERE NIP = ?";
+        $params = [$NIP];
         $stmt = sqlsrv_query($this->conn, $sql, $params);
 
         if ($stmt === false) {
