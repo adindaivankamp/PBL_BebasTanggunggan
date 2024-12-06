@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Tugas Akhir</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('Assets/BGPBL.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Poppins', Arial, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+        }
+
+        .sidebar {
+            background-color: #C8F38F;
+            width: 100px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .sidebar img {
+            width: 70px;
+            margin-bottom: 40px;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar ul li {
+            margin: 25px 0;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            font-size: 28px;
+            color: #3e923d;
+            cursor: pointer;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 100px;
+            width: calc(100% - 100px);
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .page {
+            display: none;
+            width: 100%;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 900px;
+            background-color: #8FD13C;
+            border-radius: 15px;
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr;
+            gap: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            background-color: #F7FFED;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group label {
+            font-size: 14px;
+            color: #3e923d;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            padding: 10px;
+            border: 1px solid #3e923d;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .form-group h2 {
+            text-align: center;
+            font-size: 16px;
+            color: #3e923d;
+            margin-bottom: 15px;
+        }
+
+        .form-group button {
+            background-color: #DFFBBC;
+            color: #3e923d;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .form-group button:hover {
+            background-color: #91d491;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            grid-column: 1 / span 2;
+        }
+
+        .action-buttons button {
+            width: 120px;
+            padding: 10px;
+            font-size: 14px;
+            background-color: #FFFFFE;
+            color: #3e923d;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .action-buttons button:hover {
+            background-color: #91d491;
+        }
+
+        h1 {
+            text-align: center;
+            grid-column: 1 / span 2;
+            color: #3e923d;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+            }
+            
+            .sidebar {
+                width: 60px;
+            }
+            
+            .form-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                grid-column: 1 / span 1;
+            }
+            
+            h1 {
+                grid-column: 1 / span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <aside class="sidebar">
+        <img src="Assets/logoPolinema.png" alt="Logo">
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i></a></li>
+            <li><a class="nav-link" data-page="page1"><i class="fas fa-file"></i></a></li>
+            <li><a class="nav-link" data-page="page2"><i class="fas fa-book"></i></a></li>
+            <li><a class="nav-link" data-page="page3"><i class="fas fa-folder"></i></a></li>
+            <li><a class="nav-link" data-page="page4"><i class="fas fa-graduation-cap"></i></a></li>
+        </ul>
+    </aside>
+    
+    <main class="main-content">
+        <div class="content">
+            <!-- Page 1: Laporan Tugas Akhir -->
+            <div id="page1" class="page active">
+                <div class="form-container">
+                    <h1>Laporan Tugas Akhir</h1>
+                    <div class="form-group">
+                        <label for="id1">Your ID</label>
+                        <input type="text" id="id1" placeholder="Enter your ID">
+                        <label for="email1">Your Email</label>
+                        <input type="email" id="email1" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <h2>Laporan Tugas Akhir</h2>
+                        <button>Upload</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="name1">Your Full Name</label>
+                        <input type="text" id="name1" placeholder="Enter your full name">
+                        <label for="nim1">Your NIM</label>
+                        <input type="text" id="nim1" placeholder="Enter your NIM">
+                        <label for="number1">Your Number</label>
+                        <input type="text" id="number1" placeholder="Enter your number">
+                    </div>
+                    <div class="form-group">
+                        <h2>Laporan Tugas Akhir</h2>
+                        <button>Attach</button>
+                    </div>
+                    <div class="action-buttons">
+                        <button>Send</button>
+                        <button>Back</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 2: Surat Pernyataan Publikasi -->
+            <div id="page2" class="page">
+                <div class="form-container">
+                    <h1>Surat Pernyataan Publikasi</h1>
+                    <div class="form-group">
+                        <label for="id2">Your ID</label>
+                        <input type="text" id="id2" placeholder="Enter your ID">
+                        <label for="email2">Your Email</label>
+                        <input type="email" id="email2" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <h2>Laporan Tugas Akhir</h2>
+                        <button>Upload</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="name2">Your Full Name</label>
+                        <input type="text" id="name2" placeholder="Enter your full name">
+                        <label for="nim2">Your NIM</label>
+                        <input type="text" id="nim2" placeholder="Enter your NIM">
+                        <label for="number2">Your Number</label>
+                        <input type="text" id="number2" placeholder="Enter your number">
+                    </div>
+                    <div class="action-buttons">
+                        <button>Send</button>
+                        <button>Back</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 3: Surat Pernyataan Bebas Kompen -->
+            <div id="page3" class="page">
+                <div class="form-container">
+                    <h1>Surat Pernyataan Bebas Kompen</h1>
+                    <div class="form-group">
+                        <label for="id3">Your ID</label>
+                        <input type="text" id="id3" placeholder="Enter your ID">
+                        <label for="email3">Your Email</label>
+                        <input type="email" id="email3" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <h2>Laporan Tugas Akhir</h2>
+                        <button>Upload</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="name3">Your Full Name</label>
+                        <input type="text" id="name3" placeholder="Enter your full name">
+                        <label for="nim3">Your NIM</label>
+                        <input type="text" id="nim3" placeholder="Enter your NIM">
+                        <label for="number3">Your Number</label>
+                        <input type="text" id="number3" placeholder="Enter your number">
+                    </div>
+                    <div class="action-buttons">
+                        <button>Send</button>
+                        <button>Back</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 4: Surat Pernyataan Pelunasan UKT -->
+            <div id="page4" class="page">
+                <div class="form-container">
+                    <h1>Surat Pernyataan Pelunasan UKT</h1>
+                    <div class="form-group">
+                        <label for="id4">Your ID</label>
+                        <input type="text" id="id4" placeholder="Enter your ID">
+                        <label for="email4">Your Email</label>
+                        <input type="email" id="email4" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <h2>Laporan Tugas Akhir</h2>
+                        <button>Upload</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="name4">Your Full Name</label>
+                        <input type="text" id="name4" placeholder="Enter your full name">
+                        <label for="nim4">Your NIM</label>
+                        <input type="text" id="nim4" placeholder="Enter your NIM">
+                        <label for "number4">Your Number</label>
+                        <input type="text" id="number4" placeholder="Enter your number">
+                    </div>
+                    <div class="action-buttons">
+                        <button>Send</button>
+                        <button>Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Add event listeners to navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                // Get the target page ID from the data attribute
+                const pageId = this.getAttribute('data-page');
+                
+                // Hide all pages
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show the selected page
+                const selectedPage = document.getElementById(pageId);
+                if (selectedPage) {
+                    selectedPage.classList.add('active');
+                }
+            });
+        });
+
+        // Optional: Add back button functionality to return to the first page
+        document.querySelectorAll('.action-buttons button:last-child').forEach(backButton => {
+            backButton.addEventListener('click', function() {
+                // Hide all pages
+                document.querySelectorAll('.page').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show the first page (page1)
+                document.getElementById('page1').classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
