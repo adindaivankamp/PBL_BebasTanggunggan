@@ -33,7 +33,7 @@
         }
 
         .sidebar img {
-            width: 70px;
+            width: 100px;
             margin-bottom: 40px;
         }
 
@@ -49,7 +49,7 @@
         .sidebar ul li a {
             text-decoration: none;
             font-size: 28px;
-            color: #3e923d;
+            color: #8DDE00;
             cursor: pointer;
         }
 
@@ -58,15 +58,16 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-left: 100px;
-            width: calc(100% - 100px);
+            margin-left: 120px; /* Tambahkan margin dari sidebar */
+            width: calc(100% - 120px);
             padding: 20px;
             box-sizing: border-box;
         }
 
+
         .content {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1000px; /* Lebar maksimal form */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -194,13 +195,13 @@
 </head>
 <body>
     <aside class="sidebar">
-        <img src="Assets/logoPolinema.png" alt="Logo">
+        <img src="Assets/logoPutih.png" alt="Logo">
         <ul>
             <li><a href="#"><i class="fas fa-home"></i></a></li>
             <li><a class="nav-link" data-page="page1"><i class="fas fa-file"></i></a></li>
-            <li><a class="nav-link" data-page="page2"><i class="fas fa-book"></i></a></li>
-            <li><a class="nav-link" data-page="page3"><i class="fas fa-folder"></i></a></li>
-            <li><a class="nav-link" data-page="page4"><i class="fas fa-graduation-cap"></i></a></li>
+            <li><a class="nav-link" data-page="page2"><i class="fas fa-clipboard-list"></i></a></li>
+            <li><a class="nav-link" data-page="page3"><i class="fas fa-clock "></i></a></li>
+            <li><a class="nav-link" data-page="page4"><i class="fas fa-list-alt"></i></a></li>
         </ul>
     </aside>
     
@@ -250,7 +251,7 @@
                         <input type="email" id="email2" placeholder="Enter your email">
                     </div>
                     <div class="form-group">
-                        <h2>Laporan Tugas Akhir</h2>
+                        <h2>Surat Pernyataan Publikasi</h2>
                         <button>Upload</button>
                     </div>
                     <div class="form-group">
@@ -279,7 +280,7 @@
                         <input type="email" id="email3" placeholder="Enter your email">
                     </div>
                     <div class="form-group">
-                        <h2>Laporan Tugas Akhir</h2>
+                        <h2>Surat Pernyataan Bebas Kompen</h2>
                         <button>Upload</button>
                     </div>
                     <div class="form-group">
@@ -308,7 +309,7 @@
                         <input type="email" id="email4" placeholder="Enter your email">
                     </div>
                     <div class="form-group">
-                        <h2>Laporan Tugas Akhir</h2>
+                        <h2>Surat Pernyataan Pelunasan UKT</h2>
                         <button>Upload</button>
                     </div>
                     <div class="form-group">
@@ -316,7 +317,7 @@
                         <input type="text" id="name4" placeholder="Enter your full name">
                         <label for="nim4">Your NIM</label>
                         <input type="text" id="nim4" placeholder="Enter your NIM">
-                        <label for "number4">Your Number</label>
+                        <label for ="number4">Your Number</label>
                         <input type="text" id="number4" placeholder="Enter your number">
                     </div>
                     <div class="action-buttons">
