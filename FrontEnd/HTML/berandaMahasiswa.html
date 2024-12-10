@@ -212,9 +212,9 @@
     <!-- Center Section -->
     <section class="center-section">
       <div class="features">
-        <a href="#" class="feature-card" id="requestFeature">
-          <h1>Request</h1>
-          <img src="../../Assets/request.png" alt="Request">
+        <a href="form.html" class="feature-card" id="formFeature">
+          <h1>Form</h1>
+          <img src="../../Assets/request.png" alt="Form">
         </a>
         <a href="#" class="feature-card" id="uploadFeature">
           <h1>Upload</h1>
@@ -298,9 +298,8 @@
     });
 
     // Feature card interactions
-    document.getElementById('requestFeature').addEventListener('click', (e) => {
-      e.preventDefault();
-      modals.request.classList.add('show');
+    document.getElementById('formFeature').addEventListener('click', (e) => {
+      window.location.href = 'form.html'; // Berpindah halaman ke form.html
     });
 
     document.getElementById('uploadFeature').addEventListener('click', (e) => {
