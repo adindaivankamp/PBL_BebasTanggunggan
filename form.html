@@ -44,6 +44,8 @@
 
         .sidebar ul li {
             margin: 25px 0;
+            margin-bottom: 20px;
+            position: relative;
         }
 
         .sidebar ul li a {
@@ -51,6 +53,38 @@
             font-size: 28px;
             color: #8DDE00;
             cursor: pointer;
+            position: relative;
+            display: inline-block;
+            font-size: 18px;
+        }
+
+        .sidebar ul li a i {
+            font-size: 24px;
+            color: #8DDE00 ;
+        }
+
+        .tooltip::after {
+            content: attr(data-title);
+            position: absolute;
+            left: 120%;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: #abed5b;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px; 
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: capitalize;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+        }
+
+        .sidebar ul li a:hover::after {
+            opacity: 1;
         }
 
         .main-content {
@@ -58,7 +92,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-left: 120px; /* Tambahkan margin dari sidebar */
+            margin-left: 120px; 
             width: calc(100% - 120px);
             padding: 20px;
             box-sizing: border-box;
@@ -197,13 +231,23 @@
     <aside class="sidebar">
         <img src="Assets/logoPutih.png" alt="Logo">
         <ul>
-            <li><a href="#"><i class="fas fa-home"></i></a></li>
-            <li><a class="nav-link" data-page="page1"><i class="fas fa-file"></i></a></li>
-            <li><a class="nav-link" data-page="page2"><i class="fas fa-clipboard-list"></i></a></li>
-            <li><a class="nav-link" data-page="page3"><i class="fas fa-clock "></i></a></li>
-            <li><a class="nav-link" data-page="page4"><i class="fas fa-list-alt"></i></a></li>
+            <li>
+                <a href="#" class="tooltip" data-title="Home"><i class="fas fa-home"></i></a>
+            </li>
+            <li>
+                <a href="#" class="tooltip" data-title="Laporan Tugas Akhir"><i class="fas fa-file"></i></a>
+            </li>
+            <li>
+                <a href="#" class="tooltip" data-title="Surat Pernyataan Publikasi"><i class="fas fa-clipboard-list"></i></a>
+            </li>
+            <li>
+                <a href="#" class="tooltip" data-title="Surat Keterangan Bebas Kompen"><i class="fas fa-clock"></i></a>
+            </li>
+            <li>
+                <a href="#" class="tooltip" data-title="Surat Keterangan Pelunasan UKT"><i class="fas fa-list-alt"></i></a>
+            </li>
         </ul>
-    </aside>
+    </aside>    
     
     <main class="main-content">
         <div class="content">
