@@ -63,6 +63,10 @@
             color: #8DDE00 ;
         }
 
+        .tooltip {
+            position: relative;
+        }
+
         .tooltip::after {
             content: attr(data-title);
             position: absolute;
@@ -83,8 +87,9 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
         }
 
-        .sidebar ul li a:hover::after {
+        .tooltip:hover::after {
             opacity: 1;
+            pointer-events: auto; /* Tooltip dapat diinteraksi */
         }
 
         .main-content {
@@ -235,7 +240,7 @@
                 <a href="#" class="tooltip" data-title="Home"><i class="fas fa-home"></i></a>
             </li>
             <li>
-                <a class="nav-link" data-page="page1" href="#" class="tooltip" data-title="Laporan Tugas Akhir"><i class="fas fa-file"></i></a>
+                <a href="#" class="tooltip nav-link" data-page="page1" data-title="Laporan tugas Akhir"><i class="fas fa-file"></i></a>
             </li>
             <li>
                 <a class="nav-link" data-page="page2" href="#" class="tooltip" data-title="Surat Pernyataan Publikasi"><i class="fas fa-clipboard-list"></i></a>
