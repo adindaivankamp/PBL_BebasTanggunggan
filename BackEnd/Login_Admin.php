@@ -14,10 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $loginResult = $user->login_admin($NIP, $password);
 
     if ($loginResult === true) {
-        header("Location: ../beranda_admin.html"); // Redirect to dashboard
+        header("Location: ../FrontEnd/HTML/beranda_admin.html"); // Redirect to dashboard
         exit;
     } elseif ($loginResult === false) {
-        header("Location: ../login_admin.html?error=wrong_password");
+        header("Location: ../FrontEnd/HTML/login_admin.html?error=wrong_password");
         exit;
     } else {
         echo "User not found";

@@ -14,10 +14,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $loginResult = $user->login($nim, $password);
 
     if ($loginResult === true) {
-        header("Location: ../berandaMahasiswa.html"); // Redirect to dashboard
+        header("Location: ../FrontEnd/HTML/berandaMahasiswa.html"); // Redirect to dashboard
         exit;
     } elseif ($loginResult === false) {
-        header("Location: ../Login.html?error=wrong_password");
+        header("Location: ../FrontEnd/HTML/Login.html?error=wrong_password");
         exit;
     } else {
         echo "User not found";

@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
     // Jika email ditemukan, simpan ke session dan alihkan ke halaman resetPass.html
     if (sqlsrv_fetch_array($stmt)) {
         $_SESSION['email'] = $email;
-        header("Location: ../resetPass.html");
+        header("Location: ../FrontEnd/HTML/resetPass.html");
         exit();
     } else {
         echo "<script>alert('Email tidak ditemukan!'); window.history.back();</script>";
@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['password']) && isset(
     // Hapus session email setelah password berhasil diperbarui
     unset($_SESSION['email']);
 
-    echo "<script>alert('Password berhasil diubah!'); window.location.href = '../login.html';</script>";
+    echo "<script>alert('Password berhasil diubah!'); window.location.href = '../FrontEnd/HTML/login.html';</script>";
 }
 
 // Tutup koneksi

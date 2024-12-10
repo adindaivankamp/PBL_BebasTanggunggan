@@ -1,0 +1,96 @@
+body {
+    background: url('../../Assets/BGPBL.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+}
+
+.container {
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.notifications,
+.students {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.notif-item,
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.notif-item p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.notif-item button,
+.search-bar button {
+    background-color: #48c774;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-bar input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+thead {
+    background-color: #48c774;
+    color: white;
+}
+
+thead th,
+tbody td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody td button {
+    background-color: #48c774;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
