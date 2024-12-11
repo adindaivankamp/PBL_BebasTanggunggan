@@ -211,6 +211,13 @@ h1 {
     color: black;
     text-align: center;
     font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.profile-menu {
+    color: black;
+    text-align: center;
+    font-size: 16px;
     margin-bottom: 20px;
 }
 
