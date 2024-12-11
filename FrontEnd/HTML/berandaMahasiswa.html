@@ -70,78 +70,6 @@
         </div>
       </div>
 
-      <!-- Upload Modal -->
-      <div class="modal" id="uploadModal">
-        <div class="modal-content">
-          <button class="close-button">&times;</button>
-          <div class="modal-header">
-            <h1>Upload</h1>
-          </div>
-          <div class="modal-body">
-            <div class="upload-options">
-              <div class="upload-option">
-                <div class="upload-icon">
-                  <i class="fas fa-file"></i>
-                </div>
-                <h3>Upload Laporan Tugas Akhir/Skripsi</h3>
-                <button class="upload-button">Upload</button>
-              </div>
-              <div class="upload-option">
-                <div class="upload-icon">
-                  <i class="fas fa-file"></i>
-                </div>
-                <h3>Upload Program/Aplikasi Tugas Akhir/Skripsi</h3>
-                <button class="upload-button">Upload</button>
-              </div>
-              <div class="upload-option">
-                <div class="upload-icon">
-                  <i class="fas fa-file"></i>
-                </div>
-                <h3>Upload Surat Pernyataan Publikasi</h3>
-                <button class="upload-button">Upload</button>
-              </div>
-              <div class="upload-option">
-                <div class="upload-icon">
-                  <i class="fas fa-file"></i>
-                </div>
-                <h3>Upload Jurnal</h3>
-                <button class="upload-button">Upload</button>
-              </div>
-              <div class="upload-option">
-                <div class="upload-icon">
-                  <i class="fas fa-file"></i>
-                </div>
-                <h3>Upload Tanda Terima Penyerahan Laporan Skripsi</h3>
-                <button class="upload-button">Upload</button>
-              </div>
-              <div class="upload-option">
-                <div class="upload-icon">
-                  <i class="fas fa-file"></i>
-                </div>
-                <h3>Upload Tanda Terima Penyerahan Laporan PKL/Magang</h3>
-                <button class="upload-button">Upload</button>
-              </div>
-              <div class="upload-option">
-                <div class="upload-icon">
-                  <i class="fas fa-file"></i>
-                </div>
-                <h3>Upload Surat Bebas Kompen</h3>
-                <button class="upload-button">Upload</button>
-              </div>
-              <div class="upload-option">
-                <div class="upload-icon">
-                  <i class="fas fa-file"></i>
-                </div>
-                <h3>Upload Scan TOEIC</h3>
-                <button class="upload-button">Upload</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
       <!-- Announcement Modal -->
       <div class="modal" id="announcementModal">
         <div class="modal-content">
@@ -303,8 +231,7 @@
     });
 
     document.getElementById('uploadFeature').addEventListener('click', (e) => {
-      e.preventDefault();
-      modals.upload.classList.add('show');
+      window.location.href = 'upload.html';
     });
 
     document.getElementById('learnMoreButton').addEventListener('click', (e) => {
@@ -339,27 +266,6 @@
 
     document.getElementById('logoutButton').addEventListener('click', () => {
       alert('Logout functionality to be implemented');
-    });
-
-    // Modal Functionality
-    const modal = document.getElementById("uploadModal");
-    const closeButton = document.querySelector(".close-button");
-    const uploadButtons = document.querySelectorAll(".upload-button");
-
-    // Open the modal
-    document.querySelectorAll(".upload-option").forEach((option) => {
-      option.addEventListener("click", () => {
-        modal.style.display = "block";
-      });
-    });
-
-    // Handle upload button clicks
-    uploadButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        // Implement your upload logic here
-        console.log("Upload button clicked");
-        modal.style.display = "none";
-      });
     });
   </script>
 </body>
