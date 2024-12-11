@@ -44,7 +44,7 @@
                     </div>
                     <div class="form-group">
                         <h2>Laporan Tugas Akhir</h2>
-                        <button>Upload</button>
+                        <button onclick="showPopup()">Upload</button>
                     </div>
                     <div class="form-group">
                         <label for="name1">Your Full Name</label>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="form-group">
                         <h2>Program Tugas Akhir</h2>
-                        <button>Attach</button>
+                        <button onclick="showPopup()">Attach</button>
                     </div>
                     <div class="action-buttons">
                         <button>Send</button>
@@ -77,7 +77,7 @@
                     </div>
                     <div class="form-group">
                         <h2>Surat Pernyataan Publikasi</h2>
-                        <button>Upload</button>
+                        <button onclick="showPopup()">Upload</button>
                     </div>
                     <div class="form-group">
                         <label for="name2">Your Full Name</label>
@@ -106,7 +106,7 @@
                     </div>
                     <div class="form-group">
                         <h2>Surat Pernyataan Bebas Kompen</h2>
-                        <button>Upload</button>
+                        <button onclick="showPopup()">Upload</button>
                     </div>
                     <div class="form-group">
                         <label for="name3">Your Full Name</label>
@@ -135,7 +135,7 @@
                     </div>
                     <div class="form-group">
                         <h2>Surat Pernyataan Pelunasan UKT</h2>
-                        <button>Upload</button>
+                        <button onclick="showPopup()">Upload</button>
                     </div>
                     <div class="form-group">
                         <label for="name4">Your Full Name</label>
@@ -152,6 +152,16 @@
                 </div>
             </div>
         </div>
+
+           <!-- Pop-up -->
+   <div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div>
+   <div class="popup" id="popup">
+     <form>
+       <input type="file" id="fileInput" name="file">
+       <div>
+         <button type="button" class="cancel" onclick="closePopup()">Cancel</button>
+         <button type="submit" onclick="uploadFile()">Upload</button>
+       </div>
     </main>
 
     <script>
@@ -186,6 +196,30 @@
                 document.getElementById('page1').classList.add('active');
             });
         });
+
+        //Pop up
+        // Function to show the popup
+        function showPopup() {
+        document.getElementById('popup').style.display = 'block';
+        document.getElementById('popupOverlay').style.display = 'block';
+        }
+    
+        // Function to close the popup
+        function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+        document.getElementById('popupOverlay').style.display = 'none';
+        }
+    
+        // Function to simulate file upload
+        function uploadFile() {
+        const fileInput = document.getElementById('fileInput');
+        if (fileInput.files.length === 0) {
+            alert('Silakan pilih file sebelum mengunggah!');
+        } else {
+            alert('File berhasil diunggah: ' + fileInput.files[0].name);
+            closePopup();
+        }
+    }
     </script>
 </body>
 </html>
