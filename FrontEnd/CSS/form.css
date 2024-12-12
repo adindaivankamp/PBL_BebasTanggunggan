@@ -151,9 +151,16 @@ body {
 
 .form-group h2 {
     text-align: center;
-    font-size: 16px;
+    font-size: 27px;
     color: #3e923d;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.form-group h3 {
+    text-align: center;
+    font-size: 1px;
+    color: #3e923d;
+    margin-bottom: 0px;
 }
 
 .form-group button {
@@ -196,7 +203,8 @@ body {
 h1 {
     text-align: center;
     grid-column: 1 / span 2;
-    color: #3e923d;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 @media (max-width: 768px) {
