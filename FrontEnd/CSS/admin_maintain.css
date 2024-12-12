@@ -1,0 +1,205 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../../Assets/BGPBL.png');
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    background-color: #C8F38F;
+    width: 100px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+}
+
+.sidebar img {
+    width: 70px;
+    margin-bottom: 40px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 25px 0;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    font-size: 28px;
+    color: #8DDE00;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+}
+
+.sidebar ul li a i {
+    font-size: 24px;
+}
+
+.container {
+    margin-left: 100px;
+    padding: 20px;
+}
+
+.search-bar-container{
+    margin-left: 100px;
+    margin-right: 120px;
+    padding: 20px;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+}
+
+.search-bar button {
+    background-color: #3e923d;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #C8F38F;
+}
+
+.profile-button {
+    background-color: transparent;  
+    border: none;                   
+    color: #4CAF50;                 
+    font-size: 24px;                
+    padding: 8px;                    
+    cursor: pointer;               
+}
+
+.profile-button:hover {
+    color: #45a049;                
+}
+
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.controls .sort-by {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.controls button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.controls select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.controls input {
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.controls span {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: white;
+    font-size: 14px;
+}
+
+table thead {
+    background-color: #8FD13C;
+    color: white;
+}
+
+table th, table td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.view-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.view-button:hover {
+    background-color: #45a049;
+}
+
+.fa {
+    font-size: 20px; 
+    margin-right: 8px; 
+    vertical-align: middle; 
+    padding: 20px;
+}
+
+.icon-only-button {
+    background-color: transparent;  
+    border: none;                   
+    color: #3e923d;;                 
+    font-size: 24px;                
+    padding: 10px;                
+    cursor: pointer;              
+    display: inline-flex;
+    justify-content: center;         
+    align-items: center;            
+}
+
+.icon-only-button:hover {
+    background-color: rgba(92, 180, 95, 0.1);
+}
