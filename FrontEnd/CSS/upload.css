@@ -21,6 +21,31 @@ body {
     box-sizing: border-box;
 }
 
+/* Home button */
+.home-button {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .home-button a {
+    text-decoration: none;
+    color:#68972a;
+    font-size: 24px;
+  }
+  
+  .home-button a:hover {
+    color: #8FD13C;
+  }
+
 .upload-box {
     background-color: #7DB934;
     padding: 15px;
@@ -77,7 +102,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #68972a;
+    background-color: #8FD13C;
     padding: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -114,11 +139,11 @@ body {
 }
 
 .popup button.cancel:hover {
-    background-color: #c0392b;
+    background-color: #ff1900;
 }
 
 .popup button:hover {
-    background-color: #68972a;
+    background-color: #91ff00;
 }
 
 .popup-overlay {

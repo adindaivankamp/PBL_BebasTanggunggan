@@ -114,27 +114,24 @@
         </div>
       </div>
 
-      <!-- Status View Modal -->
-      <div class="modal" id="statusModal">
-        <div class="modal-content">
-          <button class="close-button">&times;</button>
-          <div class="modal-header">
-            <h2>Status Details</h2>
-          </div>
-          <div class="modal-body">
-            <div class="form-group">
-              <h3>Status Information</h3>
-              <p><strong>Type:</strong> <span id="statusType">-</span></p>
-              <p><strong>Status:</strong> <span id="statusValue">-</span></p>
-              <p><strong>Last Updated:</strong> <span id="statusDate">-</span></p>
-              <p><strong>Notes:</strong> <span id="statusNotes">-</span></p>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button class="modal-button confirm-button">Close</button>
-          </div>
-        </div>
+<!-- Status Modal -->
+<div class="modal" id="statusModal">
+  <div class="modal-content">
+    <button class="close-button">&times;</button>
+    <div class="modal-header">
+      <h2 id="statusTitle">Status Details</h2>
+    </div>
+    <div class="modal-body">
+      <div id="statusContainer" class="announcement-container">
+        <!-- Dynamic content will be injected here -->
       </div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-button confirm-button">Close</button>
+    </div>
+  </div>
+</div>
+
     </section>
 
     <!-- Center Section -->
@@ -163,19 +160,47 @@
       <h1>Status</h1>
       <div class="status-item">
         <span>Bebas tanggungan "Skripsi/TA"</span>
-        <a href="#" class="status-button" data-type="Skripsi/TA">View</a>
+        <a href="#" class="status-button" 
+           data-title="Bebas Tanggungan Skripsi/TA" 
+           data-files='[
+             {"name": "Laporan tugas akhir", "status": "Approved", "notes": "Proposal telah disetujui."},
+             {"name": "Program/Aplikasi tugas akhir", "status": "Pending", "notes": "Masih dalam proses pengecekan."},
+             {"name": "Surat Pernyataan Publikasi Jurnal/Paper/Conference/Seminar/HAKI", "status": "Rejected", "notes": "Format file tidak sesuai."},
+             {"name": "Jurnal/Paper/Conference/Seminar/HAKI", "status": "Rejected", "notes": "Format file tidak sesuai."}
+           ]'>View</a>
       </div>
       <div class="status-item">
         <span>Bebas tanggungan "Program Studi"</span>
-        <a href="#" class="status-button" data-type="Program Studi">View</a>
+        <a href="#" class="status-button" 
+           data-title="Bebas Tanggungan Program Studi" 
+           data-files='[
+             {"name": "Tanda Terima Penyerahan Laporan Tugas Akhir/Skripsi", "status": "Approved", "notes": "Semua buku telah dikembalikan."},
+             {"name": "Tanda Terima Penyerahan Laporan PKL/Magang", "status": "Approved", "notes": "Valid."},
+             {"name": "Surat Bebas Kompen", "status": "Approved", "notes": "Semua buku telah dikembalikan."},
+             {"name": "Scan TOEIC", "status": "Approved", "notes": "Valid."}
+           ]'>View</a>
       </div>
       <div class="status-item">
-        <span>Bebas tanggungan "Akademik Pusat"</span>
-        <a href="#" class="status-button" data-type="Akademik Pusat">View</a>
+        <span>Bebas tanggungan "Akademik"</span>
+        <a href="#" class="status-button" 
+           data-title="Bebas Tanggungan Akademik" 
+           data-files='[
+             {"name": "Surat Bebas Perpustakaan", "status": "Approved", "notes": "Semua buku telah dikembalikan."},
+             {"name": "Kartu Anggota", "status": "Approved", "notes": "Valid."},
+             {"name": "Program/Aplikasi tugas akhir", "status": "Pending", "notes": "Masih dalam proses pengecekan."},
+             {"name": "Surat Pernyataan Publikasi Jurnal/Paper/Conference/Seminar/HAKI", "status": "Rejected", "notes": "Format file tidak sesuai."}
+           ]'>View</a>
       </div>
       <div class="status-item">
         <span>Bebas tanggungan "Perpustakaan"</span>
-        <a href="#" class="status-button" data-type="Perpustakaan">View</a>
+        <a href="#" class="status-button" 
+           data-title="Bebas Tanggungan Perpustakaan" 
+           data-files='[
+             {"name": "Surat Pelunasan UKT Semester 1 - Lulus", "status": "Approved", "notes": "Semua buku telah dikembalikan."},
+             {"name": "foto diri untuk Ijazah", "status": "Approved", "notes": "Valid."},
+             {"name": "Surat Lulus SKKM", "status": "Pending", "notes": "Masih dalam proses pengecekan."},
+             {"name": "Screenshot pengisian data alumni ", "status": "Rejected", "notes": "Format file tidak sesuai."}
+           ]'>View</a>
       </div>
     </section>
   </main>
@@ -201,7 +226,7 @@
       request: document.getElementById('requestModal'),
       upload: document.getElementById('uploadModal'),
       announcement: document.getElementById('announcementModal'),
-      status: document.getElementById('statusModal')
+      status: document.getElementById('statusModal'),
     };
 
     // Close buttons for all modals
@@ -239,29 +264,48 @@
       modals.announcement.classList.add('show');
     });
 
-    // Status view buttons
-    document.querySelectorAll('.status-button').forEach(button => {
-      button.addEventListener('click', (e) => {
-        e.preventDefault();
-        const type = button.getAttribute('data-type');
+// Handle status button click
+document.querySelectorAll('.status-button').forEach(button => {
+  button.addEventListener('click', (e) => {
+    e.preventDefault();
 
-        // Populate status modal with dynamic content
-        document.getElementById('statusType').textContent = type;
-        document.getElementById('statusValue').textContent = 'Approved';
-        document.getElementById('statusDate').textContent = new Date().toLocaleDateString();
-        document.getElementById('statusNotes').textContent = `Status for ${type} has been processed.`;
+    // Fetch content from data attributes
+    const title = button.getAttribute('data-title');
+    const files = JSON.parse(button.getAttribute('data-files'));
 
-        modals.status.classList.add('show');
-      });
+    // Update modal title
+    document.getElementById('statusTitle').textContent = title;
+
+    // Populate modal content
+    const container = document.getElementById('statusContainer');
+    container.innerHTML = ''; // Clear previous content
+
+    files.forEach(file => {
+      const fileElement = document.createElement('div');
+      fileElement.classList.add('status-item');
+
+      fileElement.innerHTML = `
+        <div class="status-icon">
+          <img src="../../Assets/logoPolinema.png" alt="${file.name}">
+        </div>
+        <div class="status-details">
+          <h3>${file.name}</h3>
+          <p><strong>Status:</strong> ${file.status}</p>
+          <p><strong>Notes:</strong> ${file.notes}</p>
+        </div>
+      `;
+
+      container.appendChild(fileElement);
     });
+
+    // Show the modal
+    modals.status.classList.add('show');
+  });
+});
 
     // Profile popup additional interactions
     document.getElementById('changePassButton').addEventListener('click', () => {
       alert('Change Password functionality to be implemented');
-    });
-
-    document.getElementById('studyProgramButton').addEventListener('click', () => {
-      alert('Study Program details to be implemented');
     });
 
     document.getElementById('logoutButton').addEventListener('click', () => {

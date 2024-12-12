@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Upload</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../CSS/upload.css">
 </head>
+
 <body>
+  <!-- Button Home -->
+  <div class="home-button">
+    <a href="berandaMahasiswa.html">
+      <i class="fas fa-home"></i>
+    </a>
+  </div>
   <div class="container">
     <!-- Kotak hijau pertama -->
     <div class="upload-box">
@@ -91,47 +99,61 @@
       </div>
       <div class="upload-item">
         <i class="fas fa-file"></i>
-        <p>Upload Link Publikasi Jurnal</p>
+        <p>Upload Link Publikasi Jurnal (dalam bentuk file)</p>
         <button onclick="showPopup()">Upload</button>
       </div>
     </div>
   </div>
 
-   <!-- Pop-up -->
-   <div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div>
-   <div class="popup" id="popup">
-     <form>
-       <input type="file" id="fileInput" name="file">
-       <div>
-         <button type="button" class="cancel" onclick="closePopup()">Cancel</button>
-         <button type="submit" onclick="uploadFile()">Upload</button>
-       </div>
-     </form>
-   </div>
- 
-   <script>
-     // Function to show the popup
-     function showPopup() {
-       document.getElementById('popup').style.display = 'block';
-       document.getElementById('popupOverlay').style.display = 'block';
-     }
- 
-     // Function to close the popup
-     function closePopup() {
-       document.getElementById('popup').style.display = 'none';
-       document.getElementById('popupOverlay').style.display = 'none';
-     }
- 
-     // Function to simulate file upload
-     function uploadFile() {
-       const fileInput = document.getElementById('fileInput');
-       if (fileInput.files.length === 0) {
-         alert('Silakan pilih file sebelum mengunggah!');
-       } else {
-         alert('File berhasil diunggah: ' + fileInput.files[0].name);
-         closePopup();
-       }
-     }
-   </script>
-  </body>
-  </html>
+  <!-- Pop-up -->
+  <div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div>
+  <div class="popup" id="popup">
+    <form id="uploadForm" enctype="multipart/form-data">
+      <input type="hidden" name="kategori" value="Laporan Tugas Akhir/Skripsi">
+      <input type="file" id="fileInput" name="file" required>
+      <div>
+        <button type="button" class="cancel" onclick="closePopup()">Cancel</button>
+        <button type="button" onclick="submitForm()">Upload</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Function to show the popup
+    function showPopup() {
+      document.getElementById('popup').style.display = 'block';
+      document.getElementById('popupOverlay').style.display = 'block';
+    }
+
+    // Function to close the popup
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('popupOverlay').style.display = 'none';
+    }
+
+    // Function to submit the form using AJAX
+    function submitForm() {
+      const form = document.getElementById('uploadForm');
+      const formData = new FormData(form);
+
+      // Create a new XMLHttpRequest
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', '../../BackEnd/Upload.php', true);
+
+      // Set up the request callback function
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          alert('File uploaded successfully!');
+          closePopup();
+        } else {
+          alert('Error uploading file!');
+        }
+      };
+
+      // Send the form data
+      xhr.send(formData);
+    }
+  </script>
+</body>
+
+</html>

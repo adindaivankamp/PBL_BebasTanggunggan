@@ -165,6 +165,7 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem; /* Menambahkan jarak antara gambar dan detail */
 }
 
 .status-button {
@@ -173,6 +174,30 @@ h1 {
     padding: 0.5rem 1rem;
     border-radius: 5px;
     text-decoration: none;
+}
+
+.status-icon {
+    flex-shrink: 0; /* Pastikan gambar tidak mengecil */
+}
+
+.status-details {
+    flex: 1; /* Buat elemen ini mengambil sisa ruang yang tersedia */
+    text-align: left; /* Pastikan teks rata kiri */
+}
+
+.status-details h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.status-details p {
+    margin: 5px 0;
+}
+
+.status-icon img {
+    width: 65px;
+    height: 65px;
+    border-radius: 5px;
 }
 
 .profile-popup {
@@ -474,3 +499,4 @@ h1 {
 .modal-button:hover {
     transform: scale(1.05);
 }
+
