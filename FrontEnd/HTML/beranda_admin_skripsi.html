@@ -27,7 +27,8 @@
     <div class="profile-name">Prabowo Subianto</div>
     <div class="profile-id">012345678</div>
     <div class="profil-status">Admin</div>
-    <button class="profile-menu-item" id="changePassButton">CHANGE PASS</button>
+    <button class="profile-menu-item" id="changePassButton"
+      onclick="location.href='pemulihan_password_admin.html'">CHANGE PASS</button>
     <button class="profile-menu-item" id="studyProgramButton">Admin</button>
     <button class="logout-btn" id="logoutButton">LOGOUT</button>
   </div>
@@ -38,32 +39,10 @@
       <div class="notification-item">
         <div class="notification-icon"><i class="fas fa-file"></i></div>
         <div class="notification-text">
-          <p>Skripsi/TA</p> <small>Student name M** A** request for permission</small>
-        </div> <button class="view-btn">View</button> <span class="notification-time">9:41 AM</span>
-      </div>
-      <div class="notification-item">
-        <div class="notification-icon"><i class="fas fa-book"></i></div>
-        <div class="notification-text">
-          <p>Perpustakaan</p> <small>Student name M** A** request for permission</small>
-        </div> <button class="view-btn">View</button> <span class="notification-time">9:41 AM</span>
-      </div>
-      <div class="notification-item">
-        <div class="notification-icon"><i class="fas fa-folder"></i></div>
-        <div class="notification-text">
-          <p>Berkas</p> <small>Student name M** A** request for permission</small>
-        </div> <button class="view-btn">View</button> <span class="notification-time">9:41 AM</span>
-      </div>
-      <div class="notification-item">
-        <div class="notification-icon"><i class="fas fa-graduation-cap"></i></div>
-        <div class="notification-text">
-          <p>Akademik</p> <small>Student name M** A** request for permission</small>
-        </div> <button class="view-btn">View</button> <span class="notification-time">9:41 AM</span>
-      </div>
-      <div class="notification-item">
-        <div class="notification-icon"><i class="fas fa-file"></i></div>
-        <div class="notification-text">
-          <p>Skripsi/TA</p> <small>Student name M** A** has uploaded the document</small>
-        </div> <button class="view-btn">View</button> <span class="notification-time">9:41 AM</span>
+          <p>Skripsi/TA</p> <small>Student name Muh**** Af** Request for Permission.</small>
+        </div>
+        <div class="notification-actions"> <button class="view-btn" data-target="#pdfModal">View</button> <span
+            class="notification-time">9:41 AM</span> </div>
       </div>
     </section>
 
@@ -197,6 +176,20 @@
     document.getElementById('studyProgramButton').addEventListener('click', () => {
       alert('Study Program details to be implemented');
     });
+
+    // View buttons to open modals 
+    document.querySelectorAll('.view-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const targetModal = document.querySelector(button.getAttribute('data-target'));
+        targetModal.style.display = 'block';
+      });
+    });
+    // Close modals when clicking outside of them 
+    window.onclick = function (event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+      }
+    };
 
     // Student modal functionality
     var modal = document.getElementById("student-modal");
