@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,28 +9,33 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/form.css">
 </head>
+
 <body>
     <aside class="sidebar">
         <img src="../../Assets/logoPolinema.png" alt="Logo">
         <ul>
             <li>
-                <a href="#" class="tooltip" data-title="Beranda"><i class="fas fa-home"></i></a>
+                <a href="berandaMahasiswa.html" class="tooltip" data-title="Beranda"><i class="fas fa-home"></i></a>
             </li>
             <li>
-                <a href="#" class="tooltip nav-link" data-page="page1" data-title="Laporan tugas Akhir"><i class="fas fa-file"></i></a>
+                <a href="#" class="tooltip nav-link" data-page="page1" data-title="Laporan tugas Akhir"><i
+                        class="fas fa-file"></i></a>
             </li>
             <li>
-                <a href="#" class="tooltip nav-link" data-page="page2" data-title="Surat Pernyataan Publikasi"><i class="fas fa-clipboard-list"></i></a>
+                <a href="#" class="tooltip nav-link" data-page="page2" data-title="Surat Pernyataan Publikasi"><i
+                        class="fas fa-clipboard-list"></i></a>
             </li>
             <li>
-                <a href="#" class="tooltip nav-link" data-page="page3" data-title="Surat Keterangan Bebas Kompen"><i class="fas fa-clock"></i></a>
+                <a href="#" class="tooltip nav-link" data-page="page3" data-title="Surat Keterangan Bebas Kompen"><i
+                        class="fas fa-clock"></i></a>
             </li>
             <li>
-                <a href="#" class="tooltip nav-link" data-page="page4" data-title="Surat Keterangan Pelunasan UKT"><i class="fas fa-list-alt"></i></a>
+                <a href="#" class="tooltip nav-link" data-page="page4" data-title="Surat Keterangan Pelunasan UKT"><i
+                        class="fas fa-list-alt"></i></a>
             </li>
         </ul>
-    </aside>    
-    
+    </aside>
+
     <main class="main-content">
         <div class="content">
             <!-- Page 1: Laporan Tugas Akhir -->
@@ -142,7 +148,7 @@
                         <input type="text" id="name4" placeholder="Enter your full name">
                         <label for="nim4">Your NIM</label>
                         <input type="text" id="nim4" placeholder="Enter your NIM">
-                        <label for ="number4">Your Number</label>
+                        <label for="number4">Your Number</label>
                         <input type="text" id="number4" placeholder="Enter your number">
                     </div>
                     <div class="action-buttons">
@@ -153,29 +159,29 @@
             </div>
         </div>
 
-           <!-- Pop-up -->
-   <div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div>
-   <div class="popup" id="popup">
-     <form>
-       <input type="file" id="fileInput" name="file">
-       <div>
-         <button type="button" class="cancel" onclick="closePopup()">Cancel</button>
-         <button type="submit" onclick="uploadFile()">Upload</button>
-       </div>
+        <!-- Pop-up -->
+        <div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div>
+        <div class="popup" id="popup">
+            <form>
+                <input type="file" id="fileInput" name="file">
+                <div>
+                    <button type="button" class="cancel" onclick="closePopup()">Cancel</button>
+                    <button type="submit" onclick="uploadFile()">Upload</button>
+                </div>
     </main>
 
     <script>
         // Add event listeners to navigation links
         document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function () {
                 // Get the target page ID from the data attribute
                 const pageId = this.getAttribute('data-page');
-                
+
                 // Hide all pages
                 document.querySelectorAll('.page').forEach(page => {
                     page.classList.remove('active');
                 });
-                
+
                 // Show the selected page
                 const selectedPage = document.getElementById(pageId);
                 if (selectedPage) {
@@ -186,12 +192,12 @@
 
         // Optional: Add back button functionality to return to the first page
         document.querySelectorAll('.action-buttons button:last-child').forEach(backButton => {
-            backButton.addEventListener('click', function() {
+            backButton.addEventListener('click', function () {
                 // Hide all pages
                 document.querySelectorAll('.page').forEach(page => {
                     page.classList.remove('active');
                 });
-                
+
                 // Show the first page (page1)
                 document.getElementById('page1').classList.add('active');
             });
@@ -200,26 +206,27 @@
         //Pop up
         // Function to show the popup
         function showPopup() {
-        document.getElementById('popup').style.display = 'block';
-        document.getElementById('popupOverlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('popupOverlay').style.display = 'block';
         }
-    
+
         // Function to close the popup
         function closePopup() {
-        document.getElementById('popup').style.display = 'none';
-        document.getElementById('popupOverlay').style.display = 'none';
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('popupOverlay').style.display = 'none';
         }
-    
+
         // Function to simulate file upload
         function uploadFile() {
-        const fileInput = document.getElementById('fileInput');
-        if (fileInput.files.length === 0) {
-            alert('Silakan pilih file sebelum mengunggah!');
-        } else {
-            alert('File berhasil diunggah: ' + fileInput.files[0].name);
-            closePopup();
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput.files.length === 0) {
+                alert('Silakan pilih file sebelum mengunggah!');
+            } else {
+                alert('File berhasil diunggah: ' + fileInput.files[0].name);
+                closePopup();
+            }
         }
-    }
     </script>
 </body>
+
 </html>
