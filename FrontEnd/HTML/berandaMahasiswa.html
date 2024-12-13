@@ -206,6 +206,10 @@
   </main>
 
   <script>
+    document.getElementById("logoutButton").addEventListener("click", function() {
+      window.location.href = "file:///Applications/XAMPP/xamppfiles/htdocs/PBL_BebasTanggunggan/FrontEnd/HTML/Halaman_awal.html";
+    });
+    
     // Profile Popup Functionality
     const profileButton = document.getElementById('profileButton');
     const profilePopup = document.getElementById('profilePopup');
@@ -309,7 +313,6 @@ document.querySelectorAll('.status-button').forEach(button => {
     });
 
     document.getElementById('logoutButton').addEventListener('click', () => {
-      alert('Logout functionality to be implemented');
     });
   </script>
 </body>
