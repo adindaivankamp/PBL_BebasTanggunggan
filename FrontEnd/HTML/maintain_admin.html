@@ -73,7 +73,7 @@
         <div class="search-bar">
             <input type="text" placeholder="Search">
             <button>Cari</button>
-        </div>
+        </div>        
         <div class="profile-icon">
             <div class="nav-icons">
                 <a href="#" id="profileButton"><i class="fas fa-user"></i></a>
@@ -203,6 +203,20 @@
             });
         });
 
+        // Function to search names in the table
+        document.querySelector('.search-bar button').addEventListener('click', function () {
+            const searchInput = document.querySelector('.search-bar input').value.toLowerCase(); // Ambil teks dari input
+            const tableRows = document.querySelectorAll('table tbody tr'); // Ambil semua baris dalam tabel
+
+            tableRows.forEach(row => {
+                const nameCell = row.cells[4]; // Kolom "Nama" ada di indeks ke-4
+                if (nameCell && nameCell.textContent.toLowerCase().includes(searchInput)) {
+                    row.style.display = ''; // Tampilkan baris jika cocok
+                } else {
+                    row.style.display = 'none'; // Sembunyikan baris jika tidak cocok
+                }
+            });
+        });
 
     </script>
 </body>
