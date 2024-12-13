@@ -187,6 +187,18 @@
 
         rows.forEach(row => table.appendChild(row));
     };
+    
+    // Function to delete rows where checkboxes are selected
+    document.querySelector('.trash-button').addEventListener('click', function () {
+            const tableRows = document.querySelectorAll('table tbody tr'); // Ambil semua baris tabel
+
+            tableRows.forEach(row => {
+                const checkbox = row.querySelector('td:first-child input[type="checkbox"]'); // Checkbox di kolom pertama
+                if (checkbox && checkbox.checked) {
+                    row.remove(); // Hapus baris jika checkbox dipilih
+                }
+            });
+        });
 </script>
 </body>
 </html>
