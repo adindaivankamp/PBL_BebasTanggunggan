@@ -348,7 +348,7 @@
           $('#AnnouncementModal').addClass('show');
         })
       })
-      // modals.announcement.classList.add('show');
+      modals.announcement.classList.add('show');
     });
 
         // Logout button redirection
@@ -358,48 +358,48 @@
     });
     
     // Handle status button click
-    // document.querySelectorAll('.status-button').forEach(button => {
-    //   button.addEventListener('click', (e) => {
-    //     e.preventDefault();
+    document.querySelectorAll('.status-button').forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
 
-    //     // Fetch content from data attributes
-    //     const title = button.getAttribute('data-title');
-    //     const files = JSON.parse(button.getAttribute('data-files'));
+    // Fetch content from data attributes
+        const title = button.getAttribute('data-title');
+        const files = JSON.parse(button.getAttribute('data-files'));
 
-    //     // Update modal title
-    //     document.getElementById('statusTitle').textContent = title;
+    // Update modal title
+        document.getElementById('statusTitle').textContent = title;
 
-    //     // Populate modal content
-    //     const container = document.getElementById('statusContainer');
-    //     container.innerHTML = ''; // Clear previous content
+    // Populate modal content
+        const container = document.getElementById('statusContainer');
+        container.innerHTML = ''; // Clear previous content
 
-    //     files.forEach(file => {
-    //       const fileElement = document.createElement('div');
-    //       fileElement.classList.add('status-item');
+        files.forEach(file => {
+          const fileElement = document.createElement('div');
+          fileElement.classList.add('status-item');
 
-    //       fileElement.innerHTML = `
-    //         <div class="status-icon">
-    //           <img src="../../Assets/logoPolinema.png" alt="${file.name}">
-    //         </div>
-    //         <div class="status-details">
-    //           <h3>${file.name}</h3>
-    //           <p><strong>Status:</strong> ${file.status}</p>
-    //           <p><strong>Notes:</strong> ${file.notes}</p>
-    //         </div>
-    //       `;
+          fileElement.innerHTML = `
+            <div class="status-icon">
+              <img src="../../Assets/logoPolinema.png" alt="${file.name}">
+            </div>
+            <div class="status-details">
+              <h3>${file.name}</h3>
+              <p><strong>Status:</strong> ${file.status}</p>
+              <p><strong>Notes:</strong> ${file.notes}</p>
+            </div>
+          `;
 
-    //       container.appendChild(fileElement);
-    //     });
+          container.appendChild(fileElement);
+        });
 
-    //     // Show the modal
-    //     modals.status.classList.add('show');
-    //   });
-    // });
+        // Show the modal
+        modals.status.classList.add('show');
+      });
+    });
 
     // Profile popup additional interactions
-    // document.getElementById('changePassButton').addEventListener('click', () => {
-    //   alert('Change Password functionality to be implemented');
-    // });
+    document.getElementById('changePassButton').addEventListener('click', () => {
+      alert('Change Password functionality to be implemented');
+    });
 
     document.getElementById('logoutButton').addEventListener('click', () => {
     });
