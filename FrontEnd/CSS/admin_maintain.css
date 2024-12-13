@@ -167,6 +167,27 @@ body {
     font-size: 16px;
     margin-bottom: 5px;
 }
+.profile-icon {
+    position: absolute; /* Posisikan secara absolut */
+    top: 0; /* Pastikan berada di bagian atas */
+    right: 0; /* Tempatkan di sisi kanan layar */
+    margin: 25px; /* Tambahkan sedikit jarak dari tepi */
+}
+
+.profile-icon .nav-icons {
+    display: flex; /* Agar ikon rapi */
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-icon a {
+    text-decoration: none; /* Hapus garis bawah jika ada */
+}
+
+.profile-icon i {
+    font-size: 20px; /* Sesuaikan ukuran ikon */
+    color: #000; /* Warna ikon (bisa disesuaikan) */
+}
 
 .profile-menu {
     color: black;
