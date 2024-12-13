@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pemulihan Password</title>
+    <title>Password Changed</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -38,14 +38,6 @@
             font-size: 1rem;
         }
 
-        .container input[type="email"] {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
         .container button {
             background-color: #7AC142;
             color: white;
@@ -74,15 +66,9 @@
 
 <body>
     <div class="container">
-        <h1>Pemulihan Password</h1>
+        <h1>Password has changed</h1>
         <p>SISTEM INFORMASI BEBAS TANGGUNGAN POLINEMA</p>
-        <form action="set_password_mahasiswa.html" method="GET">
-            <input type="email" placeholder="Email Pemulihan" required>
-            <br>
-            <button type="submit">PROSES</button>
-        </form>
-        <br>
-        <a href="success_page_mahasiswa.html">Klik disini untuk kembali ke Halaman Akun</a>
+        <button onclick="window.location.href='berandaMahasiswa.html'">Back to Dashboard</button>
     </div>
 </body>
 

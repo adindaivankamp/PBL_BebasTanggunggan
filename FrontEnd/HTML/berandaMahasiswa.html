@@ -27,7 +27,8 @@
     <div class="profile-name">NAMA LENGKAP</div>
     <div class="profile-id">2341760058</div>
     <div class="profile-menu">D4-SISTEM INFORMASI BISNIS</div>
-    <button class="profile-menu-item" id="changePassButton">CHANGE PASS</button>
+    <button class="profile-menu-item" id="changePassButton"
+      onclick="location.href='pemulihan_password_mahasiswa.html'">CHANGE PASS</button>
     <button class="logout-btn" id="logoutButton">LOGOUT</button>
   </div>
 
@@ -172,8 +173,7 @@
         <img src="../../Assets/pengumuman.png" alt="Pengumuman">
         <div>
           <h1>Pengumuman</h1>
-          <a href="#" class="learn-more-btn" id="learnMoreButton"
-          >Learn More</a>
+          <a href="#" class="learn-more-btn" id="learnMoreButton">Learn More</a>
         </div>
       </div>
     </section>
@@ -351,6 +351,12 @@
       // modals.announcement.classList.add('show');
     });
 
+        // Logout button redirection
+        const logoutButton = document.getElementById('logoutButton');
+    logoutButton.addEventListener('click', () => {
+      window.location.href = '../../FrontEnd/HTML/Halaman_awal.html';
+    });
+    
     // Handle status button click
     // document.querySelectorAll('.status-button').forEach(button => {
     //   button.addEventListener('click', (e) => {
@@ -391,9 +397,9 @@
     // });
 
     // Profile popup additional interactions
-    document.getElementById('changePassButton').addEventListener('click', () => {
-      alert('Change Password functionality to be implemented');
-    });
+    // document.getElementById('changePassButton').addEventListener('click', () => {
+    //   alert('Change Password functionality to be implemented');
+    // });
 
     document.getElementById('logoutButton').addEventListener('click', () => {
     });
