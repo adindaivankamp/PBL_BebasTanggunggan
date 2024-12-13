@@ -128,6 +128,13 @@ h1 {
     /* Warna saat hover */
 }
 
+.notification-text p,
+.notification-text small {
+    margin: 10; /* Removes default margin for better alignment */
+    text-align: left; /* Explicitly aligns text to the left */
+    padding-left: 10px;
+}
+
 .student-search-section {
     background: rgba(255, 255, 255, 0.3);
     /* Mengatur transparansi 30% */
