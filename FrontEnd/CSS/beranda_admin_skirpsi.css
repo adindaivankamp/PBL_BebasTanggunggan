@@ -66,7 +66,7 @@ h1 {
 
 .notification-item .notification-text {
     flex: 1;
-    text-align: center;
+    text-align: left;
     /* Menengah secara horizontal */
     display: flex;
     flex-direction: column;
@@ -134,7 +134,6 @@ h1 {
     border-radius: 20px;
     padding: 3rem;
 }
-
 
 .student-search-section h1 {
     text-align: center;
