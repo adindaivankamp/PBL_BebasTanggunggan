@@ -1,0 +1,442 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 97%;
+}
+
+body {
+    background: url('../../Assets/BGPBL.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh;
+    position: relative;
+}
+
+h1 {
+    font-weight: 600;
+}
+
+/* Adjusted font size */
+.notification-section h1,
+.center-section h1,
+.announcement-card h1 {
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.header {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.nav-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-icons a {
+    width: 35px;
+    height: 35px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    text-decoration: none;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+    /* Kolom Notifikasi (30%) dan Kolom Mahasiswa (70%) */
+    gap: 2rem;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0 2rem;
+}
+
+.notification-item .notification-text {
+    flex: 1;
+    text-align: center;
+    /* Menengah secara horizontal */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Menengah secara vertikal */
+}
+
+
+.notification-section {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 3rem;
+}
+
+.notification-section h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+
+.notification-section h2 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.notification-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0.8rem;
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 0.8rem;
+}
+
+.notification-item .notification-time {
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.notification-item .view-btn {
+    padding: 0.5rem 1rem;
+    background: #8BC34A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.notification-item .view-btn:hover {
+    background: #76a92c;
+    /* Warna saat hover */
+}
+
+.notification-icon {
+    width: 50px;
+    height: 30px;
+    background: #f0f0f0;
+    border-radius: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.student-search-section {
+    background: rgba(255, 255, 255, 0.3);
+    /* Mengatur transparansi 30% */
+    border-radius: 20px;
+    padding: 3rem;
+}
+
+
+.student-search-section h1 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.search-bar input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid #4caf50;
+    border-radius: 5px;
+    flex: 1;
+    /* Memperpanjang input untuk mengisi ruang kosong */
+    margin-right: 0.5rem;
+}
+
+.search-bar button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.search-bar button:hover {
+    background-color: #45a049;
+}
+
+.student-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 0.8rem;
+    width: 100%;
+    /* Memastikan lebar kolom 100% dari ruang yang tersedia */
+    max-width: 100%;
+    /* Membatasi lebar agar tidak melebihi kontainer */
+}
+
+.student-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+    /* Membuat kolom ini bisa berkembang sesuai ruang kosong */
+}
+
+.student-info img {
+    width: 40px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.student-details {
+    flex-grow: 2;
+    /* Memberikan lebih banyak ruang pada bagian ini */
+}
+
+.student-details p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.student-details small {
+    color: gray;
+    font-size: 0.9rem;
+}
+
+.table-wrapper {
+    width: 100%;
+    max-width: 100%;
+    /* Pastikan wrapper tabel menggunakan seluruh ruang yang tersedia */
+    margin: 0 auto;
+}
+
+.student-list {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.view-btn {
+    padding: 0.5rem 1rem;
+    background: #8BC34A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.view-btn:hover {
+    background: #76a92c;
+}
+
+.center-section {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 2rem;
+}
+
+.profile-popup {
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    width: 280px;
+    background: #8BC34A;
+    border-radius: 15px;
+    padding: 20px;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.profile-popup.show {
+    display: block;
+}
+
+.profile-picture {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+}
+
+.profile-name {
+    color: black;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.profile-id {
+    color: black;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.profile-status {
+    color: black;
+    text-align: center;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.profile-menu-item {
+    background: white;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+    width: 100%;
+    font-size: 14px;
+}
+
+.profile-menu-item:last-child {
+    margin-bottom: 0;
+}
+
+.profile-menu-item:hover {
+    background: #f0f0f0;
+}
+
+/* Gaya untuk gambar di tombol profil */
+.nav-icons a img.profile-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Gaya untuk gambar di dalam pop-up profil */
+.profile-popup .profile-picture img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+
+.logout-btn {
+    background: white;
+    border-radius: 8px;
+    padding: 8px;
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
+    width: 50%;
+    margin: 10px auto 0;
+    display: block;
+    border: none;
+    font-size: 14px;
+}
+
+.logout-btn:hover {
+    background: #f0f0f0;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    border-radius: 10px;
+}
+
+.close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.student-modal-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.student-modal-info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.student-modal-buttons {
+    margin-top: 2rem;
+}
+
+.student-modal-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #8BC34A;
+    border-radius: 10px;
+    margin-bottom: 0.8rem;
+}
+
+.student-modal-item p {
+    margin: 0;
+    color: white;
+}
+
+.student-modal-item .view-btn {
+    background: #76a92c;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.student-modal-item .view-btn:hover {
+    background: #5e891f;
+}

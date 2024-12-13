@@ -7,7 +7,8 @@
   <title>Sistem Informasi Bebas Tanggungan-Admin</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../CSS/berandaAdmin.css">
+  <link rel="stylesheet" href="../CSS/beranda_admin_skirpsi.css">
+  <!-- <link rel="stylesheet" href="../CSS/berandaMahasiswa.css"> -->
 </head>
 
 <body>
@@ -26,9 +27,9 @@
     </div>
     <div class="profile-name">Prabowo Subianto</div>
     <div class="profile-id">012345678</div>
-    <div class="profil-status">Admin</div>
-    <button class="profile-menu-item" id="changePassButton">CHANGE PASS</button>
-    <button class="profile-menu-item" id="studyProgramButton">Admin</button>
+    <div class="profile-status">ADMIN</div>
+    <button class="profile-menu-item" id="changePassButton"
+      onclick="location.href='pemulihan_password_admin.html'">CHANGE PASS</button>
     <button class="logout-btn" id="logoutButton">LOGOUT</button>
   </div>
 
@@ -36,40 +37,17 @@
     <section class="notification-section">
       <h1>Notifikasi</h1>
       <div class="notification-item">
-        <div class="notification-icon"><i class="fas fa-file"></i></div>
-        <div>
+        <div class="notification-icon">
+          <i class="fas fa-file"></i>
+        </div>
+        <div class="notification-text">
           <p>Skripsi/TA</p>
-          <small>admin has approved the request</small>
+          <small>Student name Muh**** Af** Request for Permission.</small>
         </div>
-        <button class="view-btn">View</button>
-        <span class="notification-time">9:41 AM</span>
-      </div>
-      <div class="notification-item">
-        <div class="notification-icon"><i class="fas fa-book"></i></div>
-        <div>
-          <p>Perpustakaan</p>
-          <small>admin has approved the request</small>
+        <div class="notification-actions">
+          <button class="view-btn view-btn-notification" data-pdf="../../Assets/contoh_skripsi.pdf">View</button>
+          <span class="notification-time">9:41 AM</span>
         </div>
-        <button class="view-btn">View</button>
-        <span class="notification-time">9:41 AM</span>
-      </div>
-      <div class="notification-item">
-        <div class="notification-icon"><i class="fas fa-folder"></i></div>
-        <div>
-          <p>Berkas</p>
-          <small>admin has approved the request</small>
-        </div>
-        <button class="view-btn">View</button>
-        <span class="notification-time">9:41 AM</span>
-      </div>
-      <div class="notification-item">
-        <div class="notification-icon"><i class="fas fa-graduation-cap"></i></div>
-        <div>
-          <p>Akademik</p>
-          <small>admin has approved the request</small>
-        </div>
-        <button class="view-btn">View</button>
-        <span class="notification-time">9:41 AM</span>
       </div>
     </section>
 
@@ -88,7 +66,7 @@
             <small>NIM: 2341760189</small>
           </div>
         </div>
-        <button class="view-btn">View</button>
+        <button class="view-btn btn-ijo" data-target="#student-modal">View</button>
       </div>
       <div class="student-item">
         <div class="student-info">
@@ -98,17 +76,7 @@
             <small>NIM: 12345677789</small>
           </div>
         </div>
-        <button class="view-btn">View</button>
-      </div>
-      <div class="student-item">
-        <div class="student-info">
-          <img src="profile-placeholder.png" alt="Profile">
-          <div class="student-details">
-            <p>Nama: Nama siapa</p>
-            <small>NIM: 12345677790</small>
-          </div>
-        </div>
-        <button class="view-btn">View</button>
+        <button class="view-btn btn-ijo" data-target="#student-modal">View</button>
       </div>
     </section>
 
@@ -117,31 +85,39 @@
       <div class="modal-content">
         <span class="close-btn">&times;</span>
         <div class="student-modal-info">
-          <img src="profile-placeholder.png" alt="Profile">
+          <img src="../../Assets/tes.jpg" alt="Profile">
           <div class="student-details">
-            <p>Nama: Nama siapa</p>
-            <p>NIM: 123456789010</p>
-            <p>Program: Teknologi Informasi - Sistem Informasi Bisnis</p>
+            <p>Nama: Jokowo Dodo</p>
+            <p>NIM: 2341760189</p>
+            <p>Program Studi : D-IV Sistem Informasi Bisnis</p>
           </div>
         </div>
         <div class="student-modal-buttons">
           <div class="student-modal-item">
             <p>Bebas tanggungan 'Skripsi/TA'</p>
-            <button class="view-btn">View</button>
+            <button class="view-btn btn-ijo">View</button>
           </div>
           <div class="student-modal-item">
             <p>Bebas tanggungan 'Program Studi'</p>
-            <button class="view-btn">View</button>
+            <button class="view-btn btn-ijo">View</button>
           </div>
           <div class="student-modal-item">
             <p>Bebas tanggungan Akademik Pusat</p>
-            <button class="view-btn">View</button>
+            <button class="view-btn btn-ijo">View</button>
           </div>
           <div class="student-modal-item">
             <p>Bebas tanggungan 'Perpustakaan'</p>
-            <button class="view-btn">View</button>
+            <button class="view-btn btn-ijo">View</button>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Modal untuk menampilkan PDF -->
+    <div id="pdfModal" class="modal">
+      <div class="modal-content-notification">
+        <span class="close-btn">&times;</span>
+        <embed id="pdfViewer" src="" width="100%" height="600px" type="application/pdf">
       </div>
     </div>
   </main>
@@ -169,54 +145,48 @@
     });
 
     // Close buttons for all modals
-    document.querySelectorAll('.close-button').forEach(button => {
+    document.querySelectorAll('.close-btn').forEach(button => {
       button.addEventListener('click', () => {
-        button.closest('.modal').classList.remove('show');
+        button.closest('.modal').style.display = 'none';
       });
     });
 
-    // Cancel buttons for all modals
-    document.querySelectorAll('.cancel-button').forEach(button => {
+    // View buttons to open modals
+    document.querySelectorAll('.view-btn.btn-ijo').forEach(button => {
       button.addEventListener('click', () => {
-        button.closest('.modal').classList.remove('show');
+        const targetModal = document.querySelector(button.getAttribute('data-target'));
+        if (targetModal) {
+          targetModal.style.display = 'block';
+        }
       });
-    });
-
-    // OK/Confirm buttons
-    document.querySelectorAll('.confirm-button').forEach(button => {
-      button.addEventListener('click', () => {
-        button.closest('.modal').classList.remove('show');
-      });
-    });
-
-    // Profile popup additional interactions
-    document.getElementById('changePassButton').addEventListener('click', () => {
-      alert('Change Password functionality to be implemented');
-    });
-
-    document.getElementById('studyProgramButton').addEventListener('click', () => {
-      alert('Study Program details to be implemented');
     });
 
     // Student modal functionality
-    var modal = document.getElementById("student-modal");
-    var span = document.getElementsByClassName("close-btn")[0];
-
-    document.querySelectorAll('.student-item .view-btn').forEach(button => {
+    const studentModal = document.getElementById("student-modal");
+    document.querySelectorAll('.student-item .btn-ijo').forEach(button => {
       button.addEventListener('click', function () {
-        modal.style.display = "block";
+        studentModal.style.display = "block";
       });
     });
 
-    span.onclick = function () {
-      modal.style.display = "none";
-    }
+    // Modal functionality for viewing PDF
+    const pdfModal = document.getElementById('pdfModal');
+    const pdfViewer = document.getElementById('pdfViewer');
 
+    document.querySelectorAll('.view-btn-notification').forEach(button => {
+      button.addEventListener('click', function () {
+        const pdfUrl = button.getAttribute('data-pdf');
+        pdfViewer.setAttribute('src', pdfUrl); // Update PDF source
+        pdfModal.style.display = "block";
+      });
+    });
+
+    // Close modals when clicking outside of them
     window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
       }
-    }
+    };
   </script>
 </body>
 
