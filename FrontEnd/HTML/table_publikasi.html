@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Maintainance</title>
+    <title>Table Surat Ket.Publikasi</title>
     <link rel="stylesheet" href="../CSS/admin_maintain.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
@@ -68,7 +68,6 @@
             </div>
         </a>
     </div>
-
     <div class="search-bar-container">
         <div class="search-bar">
             <input type="text" placeholder="Search">
@@ -113,83 +112,86 @@
                 <span>Entries</span>
             </div>
         </div>
-        <table>
-            <thead>
-                <tr>
-                    <th><input type="checkbox"></th>
-                    <th>ID</th>
-                    <th>Username</th>
-                    <th>NIM</th>
-                    <th>Nama</th>
-                    <th>Program Studi</th>
-                    <th>Created At</th>
-                    <th>Email</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>1</td>
-                    <td>1234567788</td>
-                    <td>1234567788</td>
-                    <td>Nama siapa</td>
-                    <td>Sistem Informasi Bisnis</td>
-                    <td>2024-11-01 22:50:49.347</td>
-                    <td>iniemail@gmail.com</td>
-                    <td><button class="edit-button">Edit</button></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>2</td>
-                    <td>1234567788</td>
-                    <td>1234567788</td>
-                    <td>Nama siapa</td>
-                    <td>Sistem Informasi Bisnis</td>
-                    <td>2024-11-01 22:50:49.347</td>
-                    <td>iniemail@gmail.com</td>
-                    <td><button class="edit-button">Edit</button></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox"></th>
+                <th>ID</th>
+                <th>NIM</th>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>No WhatsApp</th>
+                <th>File Surat Name</th>
+                <th>File Surat Path</th>
+                <th>Program Studi</th>
+                <th>Created At</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>1</td>
+                <td>123456</td>
+                <td>Dini Elminingtyas</td>
+                <td>dinielmi912@gmail.com</td>
+                <td>+628123456789</td>
+                <td>surat1.pdf</td>
+                <td>/path/to/surat1</td>
+                <td>Sistem Informasi Bisnis</td>
+                <td>2024-01-01</td>
+                <td><button class="edit-button">Edit</button></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox"></td>
+                <td>2</td>
+                <td>123456</td>
+                <td>John Doe</td>
+                <td>johndoe@example.com</td>
+                <td>+628123456789</td>
+                <td>surat1.pdf</td>
+                <td>/path/to/surat1</td>
+                <td>Teknik Informatika</td>
+                <td>2024-01-01</td>
+                <td><button class="edit-button">Edit</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    const profileButton = document.getElementById('profileButton');
+        const profilePopup = document.getElementById('profilePopup');
 
-    <script>
-        //profile button
-        const profileButton = document.getElementById('profileButton');
-            const profilePopup = document.getElementById('profilePopup');
+        profileButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        profilePopup.classList.toggle('show');
+        });
 
-            profileButton.addEventListener('click', (e) => {
-            e.stopPropagation();
-            profilePopup.classList.toggle('show');
-            });
+        document.addEventListener('click', (e) => {
+        if (!profilePopup.contains(e.target) && e.target !== profileButton) {
+            profilePopup.classList.remove('show');
+        }
+        });
 
-            document.addEventListener('click', (e) => {
-            if (!profilePopup.contains(e.target) && e.target !== profileButton) {
-                profilePopup.classList.remove('show');
+    const sortTable = () => {
+        const sortBy = document.getElementById('sort-by').value;
+        const sortOrder = document.getElementById('sort-order').value;
+        const table = document.querySelector('table tbody');
+        const rows = Array.from(table.rows);
+
+        rows.sort((a, b) => {
+            let valA = a.cells[1].textContent.trim();
+            let valB = b.cells[1].textContent.trim();
+
+            if (sortBy === 'name' || sortBy === 'date') {
+                if (valA < valB) return sortOrder === 'asc' ? -1 : 1;
+                if (valA > valB) return sortOrder === 'asc' ? 1 : -1;
             }
-            });
+            return 0;
+        });
 
-        //sort button
-        const sortTable = () => {
-            const sortBy = document.getElementById('sort-by').value;
-            const sortOrder = document.getElementById('sort-order').value;
-            const table = document.querySelector('table tbody');
-            const rows = Array.from(table.rows);
-
-            rows.sort((a, b) => {
-                let valA = a.cells[1].textContent.trim();
-                let valB = b.cells[1].textContent.trim();
-
-                if (sortBy === 'name' || sortBy === 'date') {
-                    if (valA < valB) return sortOrder === 'asc' ? -1 : 1;
-                    if (valA > valB) return sortOrder === 'asc' ? 1 : -1;
-                }
-                return 0;
-            });
-
-            rows.forEach(row => table.appendChild(row));
-        };
-    </script>
+        rows.forEach(row => table.appendChild(row));
+    };
+</script>
 </body>
 </html>

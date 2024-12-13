@@ -8,6 +8,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../CSS/berandaMahasiswa.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
 </head>
 
 <body>
@@ -114,23 +116,43 @@
         </div>
       </div>
 
-<!-- Status Modal -->
-<div class="modal" id="statusModal">
-  <div class="modal-content">
-    <button class="close-button">&times;</button>
-    <div class="modal-header">
-      <h2 id="statusTitle">Status Details</h2>
-    </div>
-    <div class="modal-body">
-      <div id="statusContainer" class="announcement-container">
-        <!-- Dynamic content will be injected here -->
+      <!-- Announcement Modal -->
+      <div class="modal" id="AnnouncementModal">
+        <div class="modal-content">
+          <button class="close-button">&times;</button>
+          <div class="modal-header">
+            <h2 id="AnnouncementTitle">Announcement Details</h2>
+          </div>
+          <div class="modal-body">
+            <div id="AnnouncementContainer">
+              <!-- Dynamic content will be injected here -->
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="modal-button confirm-button">Close</button>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="modal-footer">
-      <button class="modal-button confirm-button">Close</button>
-    </div>
-  </div>
-</div>
+
+      <!-- Status Modal -->
+      <div class="modal" id="statusModal">
+        <div class="modal-content">
+          <button class="close-button">&times;</button>
+          <div class="modal-header">
+            <h2 id="statusTitle">Status Details</h2>
+          </div>
+          <div class="modal-body">
+            <div id="statusContainer" class="announcement-container">
+              <!-- Dynamic content will be injected here -->
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="modal-button confirm-button">Close</button>
+          </div>
+        </div>
+      </div>
 
     </section>
 
@@ -150,7 +172,8 @@
         <img src="../../Assets/pengumuman.png" alt="Pengumuman">
         <div>
           <h1>Pengumuman</h1>
-          <a href="#" class="learn-more-btn" id="learnMoreButton">Learn More</a>
+          <a href="#" class="learn-more-btn" id="learnMoreButton"
+          >Learn More</a>
         </div>
       </div>
     </section>
@@ -160,9 +183,8 @@
       <h1>Status</h1>
       <div class="status-item">
         <span>Bebas tanggungan "Skripsi/TA"</span>
-        <a href="#" class="status-button" 
-           data-title="Bebas Tanggungan Skripsi/TA" 
-           data-files='[
+        <a href="#" class="status-button" onclick="onDetail('Bebas Tanggungan Skripsi/TA')"
+          data-title="Bebas Tanggungan Skripsi/TA" data-files='[
              {"name": "Laporan tugas akhir", "status": "Approved", "notes": "Proposal telah disetujui."},
              {"name": "Program/Aplikasi tugas akhir", "status": "Pending", "notes": "Masih dalam proses pengecekan."},
              {"name": "Surat Pernyataan Publikasi Jurnal/Paper/Conference/Seminar/HAKI", "status": "Rejected", "notes": "Format file tidak sesuai."},
@@ -171,9 +193,7 @@
       </div>
       <div class="status-item">
         <span>Bebas tanggungan "Program Studi"</span>
-        <a href="#" class="status-button" 
-           data-title="Bebas Tanggungan Program Studi" 
-           data-files='[
+        <a href="#" class="status-button" data-title="Bebas Tanggungan Program Studi" data-files='[
              {"name": "Tanda Terima Penyerahan Laporan Tugas Akhir/Skripsi", "status": "Approved", "notes": "Semua buku telah dikembalikan."},
              {"name": "Tanda Terima Penyerahan Laporan PKL/Magang", "status": "Approved", "notes": "Valid."},
              {"name": "Surat Bebas Kompen", "status": "Approved", "notes": "Semua buku telah dikembalikan."},
@@ -182,9 +202,7 @@
       </div>
       <div class="status-item">
         <span>Bebas tanggungan "Akademik"</span>
-        <a href="#" class="status-button" 
-           data-title="Bebas Tanggungan Akademik" 
-           data-files='[
+        <a href="#" class="status-button" data-title="Bebas Tanggungan Akademik" data-files='[
              {"name": "Surat Bebas Perpustakaan", "status": "Approved", "notes": "Semua buku telah dikembalikan."},
              {"name": "Kartu Anggota", "status": "Approved", "notes": "Valid."},
              {"name": "Program/Aplikasi tugas akhir", "status": "Pending", "notes": "Masih dalam proses pengecekan."},
@@ -193,9 +211,7 @@
       </div>
       <div class="status-item">
         <span>Bebas tanggungan "Perpustakaan"</span>
-        <a href="#" class="status-button" 
-           data-title="Bebas Tanggungan Perpustakaan" 
-           data-files='[
+        <a href="#" class="status-button" data-title="Bebas Tanggungan Perpustakaan" data-files='[
              {"name": "Surat Pelunasan UKT Semester 1 - Lulus", "status": "Approved", "notes": "Semua buku telah dikembalikan."},
              {"name": "foto diri untuk Ijazah", "status": "Approved", "notes": "Valid."},
              {"name": "Surat Lulus SKKM", "status": "Pending", "notes": "Masih dalam proses pengecekan."},
@@ -204,6 +220,49 @@
       </div>
     </section>
   </main>
+
+  <script>
+    $(() => {
+
+    })
+
+    onDetail = (jenis_dokumen) => {
+      $.ajax({
+        url: "../../BackEnd/GetUpload.php",
+        method: 'POST',
+        data: {
+          jenis_dokumen: jenis_dokumen
+        },
+        success: ((res) => {
+          res = JSON.parse(res);
+          console.log(res);
+
+          var html = '';
+
+          $.each(res, (i, v) => {
+            html += `
+            <div class="status-item">
+
+              <div class="status-icon">
+                <img src="../../Assets/logoPolinema.png" alt="${v.name}">
+              </div>
+              <div class="status-details">
+                <h3>${v.kategori}</h3>
+                <p><strong>Status:</strong> ${(v.status_validasi == 1) ? "Disetujui" : "DItolak"}</p>
+                <p><strong>Notes:</strong> ${v.notes}</p>
+                <a href="../../BackEnd/${v.file_path}" target="blank">file </a>
+              </div>
+              </div>
+            `;
+          })
+
+
+          $('#statusContainer').html(html);
+          $('#statusModal').addClass('show');
+        })
+      })
+    }
+  </script>
 
   <script>
     // Profile Popup Functionality
@@ -261,47 +320,75 @@
 
     document.getElementById('learnMoreButton').addEventListener('click', (e) => {
       e.preventDefault();
-      modals.announcement.classList.add('show');
+      $.ajax({
+        url: "../../BackEnd/GetAnnouncement.php",
+        method: 'POST',
+        success: ((res) => {
+          res = JSON.parse(res);
+          console.log(res);
+
+          var html = '';
+
+          $.each(res, (i, v) => {
+            html += `
+          <div class="announcement-item mb-3" style="margin-bottom : 20px">
+              <div class="announcement-icon">
+                <img src="../../Assets/logoPolinema.png" alt="Form Laporan Tugas Akhir">
+              </div>
+              <div class="announcement-details">
+                <h3>${v.file_name}</h3>
+                <a href="../../BackEnd/Upload/${v.file_path}" target="blank" class="learn-more-btn">View</a>
+              </div>
+            </div>
+          `;
+          })
+
+
+          $('#AnnouncementContainer').html(html);
+          $('#AnnouncementModal').addClass('show');
+        })
+      })
+      // modals.announcement.classList.add('show');
     });
 
-// Handle status button click
-document.querySelectorAll('.status-button').forEach(button => {
-  button.addEventListener('click', (e) => {
-    e.preventDefault();
+    // Handle status button click
+    // document.querySelectorAll('.status-button').forEach(button => {
+    //   button.addEventListener('click', (e) => {
+    //     e.preventDefault();
 
-    // Fetch content from data attributes
-    const title = button.getAttribute('data-title');
-    const files = JSON.parse(button.getAttribute('data-files'));
+    //     // Fetch content from data attributes
+    //     const title = button.getAttribute('data-title');
+    //     const files = JSON.parse(button.getAttribute('data-files'));
 
-    // Update modal title
-    document.getElementById('statusTitle').textContent = title;
+    //     // Update modal title
+    //     document.getElementById('statusTitle').textContent = title;
 
-    // Populate modal content
-    const container = document.getElementById('statusContainer');
-    container.innerHTML = ''; // Clear previous content
+    //     // Populate modal content
+    //     const container = document.getElementById('statusContainer');
+    //     container.innerHTML = ''; // Clear previous content
 
-    files.forEach(file => {
-      const fileElement = document.createElement('div');
-      fileElement.classList.add('status-item');
+    //     files.forEach(file => {
+    //       const fileElement = document.createElement('div');
+    //       fileElement.classList.add('status-item');
 
-      fileElement.innerHTML = `
-        <div class="status-icon">
-          <img src="../../Assets/logoPolinema.png" alt="${file.name}">
-        </div>
-        <div class="status-details">
-          <h3>${file.name}</h3>
-          <p><strong>Status:</strong> ${file.status}</p>
-          <p><strong>Notes:</strong> ${file.notes}</p>
-        </div>
-      `;
+    //       fileElement.innerHTML = `
+    //         <div class="status-icon">
+    //           <img src="../../Assets/logoPolinema.png" alt="${file.name}">
+    //         </div>
+    //         <div class="status-details">
+    //           <h3>${file.name}</h3>
+    //           <p><strong>Status:</strong> ${file.status}</p>
+    //           <p><strong>Notes:</strong> ${file.notes}</p>
+    //         </div>
+    //       `;
 
-      container.appendChild(fileElement);
-    });
+    //       container.appendChild(fileElement);
+    //     });
 
-    // Show the modal
-    modals.status.classList.add('show');
-  });
-});
+    //     // Show the modal
+    //     modals.status.classList.add('show');
+    //   });
+    // });
 
     // Profile popup additional interactions
     document.getElementById('changePassButton').addEventListener('click', () => {
@@ -309,8 +396,8 @@ document.querySelectorAll('.status-button').forEach(button => {
     });
 
     document.getElementById('logoutButton').addEventListener('click', () => {
-      alert('Logout functionality to be implemented');
     });
   </script>
 </body>
+
 </html>

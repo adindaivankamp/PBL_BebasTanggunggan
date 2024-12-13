@@ -303,7 +303,7 @@ h1 {
 }
 
 .modal-content {
-    background: #7DB934;
+    background: #7DB934  !important;
     padding: 2rem;
     border-radius: 15px;
     width: 90%;
