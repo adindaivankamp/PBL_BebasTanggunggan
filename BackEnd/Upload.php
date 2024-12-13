@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Ambil kategori dari inputan hidden atau request
     $kategori = $_POST['kategori'] ?? null;
+    $jenis_dokumen = $_POST['jenis_dokumen'] ?? null;
 
     if (!$kategori) {
         $_SESSION['alert_message'] = "Kategori tidak ditemukan.";
@@ -54,11 +55,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (move_uploaded_file($tmp_file, $file_path)) {
             // Simpan informasi ke database
             $tanggal_upload = date('Y-m-d H:i:s');
-            $sql = "INSERT INTO dbo.upload_dokumen (id, nama, kategori, file_path, nama_file, ukuran_file, tipe_file, tanggal_upload)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO dbo.upload_dokumen (id, nama, kategori, jenis_dokumen,file_path, nama_file, ukuran_file, tipe_file, tanggal_upload, notes)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
             $params = [
-                $id_user, $nama_user, $kategori, $file_path, $nama_file, $ukuran_file, $tipe_file, $tanggal_upload
+                $id_user, $nama_user, $kategori, $jenis_dokumen,$file_path, $nama_file, $ukuran_file, $tipe_file, $tanggal_upload, "Masih dalam proses pengecekan"
             ];
 
             $stmt = sqlsrv_prepare($conn, $sql, $params);
