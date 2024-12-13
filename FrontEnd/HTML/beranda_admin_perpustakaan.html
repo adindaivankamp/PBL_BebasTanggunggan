@@ -62,21 +62,23 @@
                 <div class="student-info">
                     <img src="../../Assets/tes.jpg" alt="Profile">
                     <div class="student-details">
-                        <p>Nama: Jokowi Dodo</p>
+                        <p>Muhammad Afiq Firdaus</p>
                         <small>NIM: 2341760189</small>
                     </div>
                 </div>
-                <button class="view-btn btn-ijo" data-target="#student-modal">View</button>
+                <button class="view-btn btn-ijo" data-nama="Muhammad Afiq Firdaus" data-nim="2341760189"
+                    data-prodi="D-IV Sistem Informasi Bisnis">View</button>
             </div>
             <div class="student-item">
                 <div class="student-info">
                     <img src="profile-placeholder.png" alt="Profile">
                     <div class="student-details">
-                        <p>Nama: Nama siapa</p>
-                        <small>NIM: 12345677789</small>
+                        <p>Sufyan Dwi Bagaskara</p>
+                        <small>NIM: 2341760110</small>
                     </div>
                 </div>
-                <button class="view-btn btn-ijo" data-target="#student-modal">View</button>
+                <button class="view-btn btn-ijo" data-nama="Sufyan Dwi Bagaskara" data-nim="2341760110"
+                    data-prodi="D-IV Sistem Informasi Bisnis">View</button>
             </div>
         </section>
 
@@ -87,26 +89,26 @@
                 <div class="student-modal-info">
                     <img src="../../Assets/tes.jpg" alt="Profile">
                     <div class="student-details">
-                        <p>Nama: Jokowo Dodo</p>
-                        <p>NIM: 2341760189</p>
-                        <p>Program Studi : D-IV Sistem Informasi Bisnis</p>
+                        <p id="modal-nama">Nama Mahasiswa</p>
+                        <p id="modal-nim">NIM Mahasiswa</p>
+                        <p id="modal-prodi">Program Studi</p>
                     </div>
                 </div>
                 <div class="student-modal-buttons">
                     <div class="student-modal-item">
-                        <p>Bebas tanggungan 'Skripsi/TA'</p>
+                        <p>Laporan tugas akhir / Skripsi</p>
                         <button class="view-btn btn-ijo">View</button>
                     </div>
                     <div class="student-modal-item">
-                        <p>Bebas tanggungan 'Program Studi'</p>
+                        <p>Dokumen Abstrak</p>
                         <button class="view-btn btn-ijo">View</button>
                     </div>
                     <div class="student-modal-item">
-                        <p>Bebas tanggungan Akademik Pusat</p>
+                        <p>Laporan jurnal</p>
                         <button class="view-btn btn-ijo">View</button>
                     </div>
                     <div class="student-modal-item">
-                        <p>Bebas tanggungan 'Perpustakaan'</p>
+                        <p>Link publikasi jurnal</p>
                         <button class="view-btn btn-ijo">View</button>
                     </div>
                 </div>
@@ -151,21 +153,14 @@
             });
         });
 
-        // View buttons to open modals
-        document.querySelectorAll('.view-btn.btn-ijo').forEach(button => {
-            button.addEventListener('click', () => {
-                const targetModal = document.querySelector(button.getAttribute('data-target'));
-                if (targetModal) {
-                    targetModal.style.display = 'block';
-                }
-            });
-        });
-
-        // Student modal functionality
-        const studentModal = document.getElementById("student-modal");
+        // Populate student modal dynamically
         document.querySelectorAll('.student-item .btn-ijo').forEach(button => {
             button.addEventListener('click', function () {
-                studentModal.style.display = "block";
+                const modal = document.getElementById("student-modal");
+                document.getElementById("modal-nama").textContent = this.getAttribute("data-nama");
+                document.getElementById("modal-nim").textContent = this.getAttribute("data-nim");
+                document.getElementById("modal-prodi").textContent = this.getAttribute("data-prodi");
+                modal.style.display = "block";
             });
         });
 
