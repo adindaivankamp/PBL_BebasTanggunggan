@@ -66,7 +66,7 @@ h1 {
 
 .notification-item .notification-text {
     flex: 1;
-    text-align: center;
+    text-align: left;
     /* Menengah secara horizontal */
     display: flex;
     flex-direction: column;
@@ -128,13 +128,19 @@ h1 {
     /* Warna saat hover */
 }
 
+.notification-text p,
+.notification-text small {
+    margin: 10; /* Removes default margin for better alignment */
+    text-align: left; /* Explicitly aligns text to the left */
+    padding-left: 10px;
+}
+
 .student-search-section {
     background: rgba(255, 255, 255, 0.3);
     /* Mengatur transparansi 30% */
     border-radius: 20px;
     padding: 3rem;
 }
-
 
 .student-search-section h1 {
     text-align: center;

@@ -27,7 +27,8 @@
     <div class="profile-name">NAMA LENGKAP</div>
     <div class="profile-id">2341760058</div>
     <div class="profile-menu">D4-SISTEM INFORMASI BISNIS</div>
-    <button class="profile-menu-item" id="changePassButton">CHANGE PASS</button>
+    <button class="profile-menu-item" id="changePassButton"
+      onclick="location.href='pemulihan_password_mahasiswa.html'">CHANGE PASS</button>
     <button class="logout-btn" id="logoutButton">LOGOUT</button>
   </div>
 
@@ -172,8 +173,7 @@
         <img src="../../Assets/pengumuman.png" alt="Pengumuman">
         <div>
           <h1>Pengumuman</h1>
-          <a href="#" class="learn-more-btn" id="learnMoreButton"
-          >Learn More</a>
+          <a href="#" class="learn-more-btn" id="learnMoreButton">Learn More</a>
         </div>
       </div>
     </section>
@@ -348,47 +348,53 @@
           $('#AnnouncementModal').addClass('show');
         })
       })
-      // modals.announcement.classList.add('show');
+      modals.announcement.classList.add('show');
     });
 
+        // Logout button redirection
+        const logoutButton = document.getElementById('logoutButton');
+    logoutButton.addEventListener('click', () => {
+      window.location.href = '../../FrontEnd/HTML/Halaman_awal.html';
+    });
+    
     // Handle status button click
-    // document.querySelectorAll('.status-button').forEach(button => {
-    //   button.addEventListener('click', (e) => {
-    //     e.preventDefault();
+    document.querySelectorAll('.status-button').forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
 
-    //     // Fetch content from data attributes
-    //     const title = button.getAttribute('data-title');
-    //     const files = JSON.parse(button.getAttribute('data-files'));
+    // Fetch content from data attributes
+        const title = button.getAttribute('data-title');
+        const files = JSON.parse(button.getAttribute('data-files'));
 
-    //     // Update modal title
-    //     document.getElementById('statusTitle').textContent = title;
+    // Update modal title
+        document.getElementById('statusTitle').textContent = title;
 
-    //     // Populate modal content
-    //     const container = document.getElementById('statusContainer');
-    //     container.innerHTML = ''; // Clear previous content
+    // Populate modal content
+        const container = document.getElementById('statusContainer');
+        container.innerHTML = ''; // Clear previous content
 
-    //     files.forEach(file => {
-    //       const fileElement = document.createElement('div');
-    //       fileElement.classList.add('status-item');
+        files.forEach(file => {
+          const fileElement = document.createElement('div');
+          fileElement.classList.add('status-item');
 
-    //       fileElement.innerHTML = `
-    //         <div class="status-icon">
-    //           <img src="../../Assets/logoPolinema.png" alt="${file.name}">
-    //         </div>
-    //         <div class="status-details">
-    //           <h3>${file.name}</h3>
-    //           <p><strong>Status:</strong> ${file.status}</p>
-    //           <p><strong>Notes:</strong> ${file.notes}</p>
-    //         </div>
-    //       `;
+          fileElement.innerHTML = `
+            <div class="status-icon">
+              <img src="../../Assets/logoPolinema.png" alt="${file.name}">
+            </div>
+            <div class="status-details">
+              <h3>${file.name}</h3>
+              <p><strong>Status:</strong> ${file.status}</p>
+              <p><strong>Notes:</strong> ${file.notes}</p>
+            </div>
+          `;
 
-    //       container.appendChild(fileElement);
-    //     });
+          container.appendChild(fileElement);
+        });
 
-    //     // Show the modal
-    //     modals.status.classList.add('show');
-    //   });
-    // });
+        // Show the modal
+        modals.status.classList.add('show');
+      });
+    });
 
     // Profile popup additional interactions
     document.getElementById('changePassButton').addEventListener('click', () => {

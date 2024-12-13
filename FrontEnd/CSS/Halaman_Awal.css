@@ -9,13 +9,14 @@ body {
 }
 
 .login-container {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(255, 255, 255, 0.4);
     /* Slightly transparent background */
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 495px;
     text-align: center;
+    border: 1px solid #AEF359;
 }
 
 h1 {
@@ -28,24 +29,25 @@ label {
 }
 
 select {
-    width: 100%;
+    width: 90%;
     padding: 0.5rem;
     margin: 0.5rem 0;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
+    border: 1px solid #AEF359;
 }
 
 button {
-    width: 100%;
+    width: 90%;
     padding: 0.5rem;
     border: none;
-    border-radius: 5px;
-    background-color: #4caf50;
+    border-radius: 10px;
+    background-color: #7DB934;
     color: white;
     font-size: 1rem;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #8FD13C;
 }
