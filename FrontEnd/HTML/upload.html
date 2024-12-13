@@ -6,6 +6,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../CSS/upload.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 
 <body>
@@ -21,12 +22,12 @@
       <div class="upload-item">
         <i class="fas fa-file"></i>
         <p>Laporan Tugas Akhir/Skripsi</p>
-        <button onclick="showPopup()">Upload</button>
+        <button onclick="showPopup('Laporan Tugas Akhir/Skripsi', 'Bebas Tanggungan Skripsi/TA')">Upload</button>
       </div>
       <div class="upload-item">
         <i class="fas fa-file"></i>
         <p>Program/Aplikasi Tugas Akhir/Skripsi</p>
-        <button onclick="showPopup()">Upload</button>
+        <button onclick="showPopup('Program/Aplikasi Tugas Akhir/Skripsi', 'Bebas Tanggungan Skripsi/TA')">Upload</button>
       </div>
       <div class="upload-item">
         <i class="fas fa-file"></i>
@@ -109,7 +110,8 @@
   <div class="popup-overlay" id="popupOverlay" onclick="closePopup()"></div>
   <div class="popup" id="popup">
     <form id="uploadForm" enctype="multipart/form-data">
-      <input type="hidden" name="kategori" value="Laporan Tugas Akhir/Skripsi">
+      <input type="hidden" name="kategori" id="kategori" value="Laporan Tugas Akhir/Skripsi">
+      <input type="hidden" name="jenis_dokumen" id="jenis_dokumen" value="Bebas Tanggungan Skripsi/TA">
       <input type="file" id="fileInput" name="file" required>
       <div>
         <button type="button" class="cancel" onclick="closePopup()">Cancel</button>
@@ -120,9 +122,12 @@
 
   <script>
     // Function to show the popup
-    function showPopup() {
+    function showPopup(kategori, jenis_dokumen) {
       document.getElementById('popup').style.display = 'block';
       document.getElementById('popupOverlay').style.display = 'block';
+
+      $('#kategori').val(kategori);
+      $('#jenis_dokumen').val(jenis_dokumen);
     }
 
     // Function to close the popup
