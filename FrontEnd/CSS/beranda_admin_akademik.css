@@ -72,6 +72,7 @@ h1 {
     flex-direction: column;
     justify-content: center;
     /* Menengah secara vertikal */
+    gap: 2px; 
 }
 
 .notification-section {
@@ -94,6 +95,14 @@ h1 {
 .notification-section h2 {
     color: #333;
     margin-bottom: 1rem;
+    text-align: left;
+}
+
+.notification-text p,
+.notification-text small {
+    margin: 10; /* Removes default margin for better alignment */
+    text-align: left; /* Explicitly aligns text to the left */
+    padding-left: 10px;
 }
 
 .notification-item {
