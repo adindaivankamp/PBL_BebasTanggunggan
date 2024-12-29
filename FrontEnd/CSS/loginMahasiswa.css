@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url('../../Assets/BGPBL.png');
+    background-image: url('../../Assets/bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -63,7 +63,7 @@ p {
 .input-group input {
     width: 100%;
     padding: 12px 40px;
-    border: 1px solid #AEF359;
+    border: 1px solid #106EBE;
     border-radius: 5px;
     background: rgba(95, 199, 38, 0.1);
     color: #333;
@@ -71,7 +71,7 @@ p {
 }
 
 .input-group input:focus {
-    border-color: #AEF359;
+    border-color: #106EBE;
     box-shadow: 0 0 5px rgba(95, 199, 38, 0.5);
 }
 
@@ -80,13 +80,13 @@ p {
     top: 50%;
     left: 10px;
     transform: translateY(-50%);
-    color: #AEF359;
+    color: #eaeff3;
 }
 
 button {
     width: 100%;
     padding: 12px;
-    background: #AEF359;
+    background: #106EBE;
     border: none;
     border-radius: 5px;
     color: white;
@@ -96,7 +96,7 @@ button {
 }
 
 button:hover {
-    background: #4da31f;
+    background: #0FFCBE;
     transform: translateY(-1px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -122,6 +122,6 @@ button:active {
 }
 
 .forgot-password a:hover {
-    color: #5fc726;
+    color: #0FFCBE;
     text-decoration: underline;
 }
