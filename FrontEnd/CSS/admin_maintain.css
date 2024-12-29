@@ -6,7 +6,7 @@ body {
 }
 
 .sidebar {
-    background-color: #C8F38F;
+    background-color: #5478EC;
     width: 100px;
     height: 100vh;
     display: flex;
@@ -38,7 +38,7 @@ body {
 .sidebar ul li a {
     text-decoration: none;
     font-size: 28px;
-    color: #8DDE00;
+    color: #1034A6;
     cursor: pointer;
     position: relative;
     display: inline-block;
@@ -103,7 +103,7 @@ body {
 }
 
 .search-bar button {
-    background-color: #3e923d;
+    background-color: #5478EC;
     border: none;
     color: white;
     padding: 6px 12px;
@@ -112,21 +112,21 @@ body {
 }
 
 .search-bar button:hover {
-    background-color: #C8F38F;
+    background-color: #C5D1F8;
 }
 
 
 .profile-button {
     background-color: transparent;  
     border: none;                   
-    color: #4CAF50;                 
+    color: #5478EC;                 
     font-size: 24px;                
     padding: 8px;                    
     cursor: pointer;               
 }
 
 .profile-button:hover {
-    color: #45a049;                
+    color: #5478EC;                
 }
 
 .profile-popup {
@@ -134,7 +134,7 @@ body {
     top: 80px;
     right: 30px;
     width: 280px;
-    background: #8BC34A;
+    background: #5478EC;
     border-radius: 15px;
     padding: 20px;
     display: none;
@@ -168,25 +168,25 @@ body {
     margin-bottom: 5px;
 }
 .profile-icon {
-    position: absolute; /* Posisikan secara absolut */
-    top: 0; /* Pastikan berada di bagian atas */
-    right: 0; /* Tempatkan di sisi kanan layar */
-    margin: 25px; /* Tambahkan sedikit jarak dari tepi */
+    position: absolute;
+    top: 0; 
+    right: 0; 
+    margin: 25px; 
 }
 
 .profile-icon .nav-icons {
-    display: flex; /* Agar ikon rapi */
+    display: flex; 
     justify-content: center;
     align-items: center;
 }
 
 .profile-icon a {
-    text-decoration: none; /* Hapus garis bawah jika ada */
+    text-decoration: none; 
 }
 
 .profile-icon i {
-    font-size: 20px; /* Sesuaikan ukuran ikon */
-    color: #000; /* Warna ikon (bisa disesuaikan) */
+    font-size: 20px;
+    color: #000; 
 }
 
 .profile-menu {
@@ -250,7 +250,7 @@ body {
 }
 
 .controls button {
-    background-color: #4CAF50;
+    background-color: #5478EC;
     color: white;
     border: none;
     padding: 6px 12px;
@@ -285,7 +285,7 @@ table {
 }
 
 table thead {
-    background-color: #8FD13C;
+    background-color: #5478EC;
     color: white;
 }
 
@@ -300,7 +300,7 @@ table tbody tr:hover {
 }
 
 .edit-button {
-    background-color: #4CAF50;
+    background-color: #1034A6;
     color: white;
     border: none;
     padding: 6px 12px;
@@ -310,7 +310,7 @@ table tbody tr:hover {
 }
 
 .edit-button:hover {
-    background-color: #45a049;
+    background-color: #C5D1F8;
 }
 
 .fa {
@@ -323,7 +323,7 @@ table tbody tr:hover {
 .icon-only-button {
     background-color: transparent;  
     border: none;                   
-    color: #3e923d;;                 
+    color: #1034A6;                 
     font-size: 24px;                
     padding: 10px;                
     cursor: pointer;              
@@ -359,7 +359,7 @@ table tbody tr:hover {
     left: 120%;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #8FD13C;
+    background-color: #5478EC;
     color: white;
     padding: 5px 10px;
     border-radius: 25px;
