@@ -63,7 +63,7 @@ p {
 .input-group input {
     width: 100%;
     padding: 12px 40px;
-    border: 1px solid #AEF359;
+    border: 1px solid #1034A6;
     border-radius: 5px;
     background: rgba(95, 199, 38, 0.1);
     color: #333;
@@ -71,8 +71,8 @@ p {
 }
 
 .input-group input:focus {
-    border-color: #AEF359;
-    box-shadow: 0 0 5px rgba(95, 199, 38, 0.5);
+    border-color: #1034A6;
+    box-shadow: 0 0 5px rgba(38, 84, 199, 0.5);
 }
 
 .input-group i {
@@ -80,13 +80,13 @@ p {
     top: 50%;
     left: 10px;
     transform: translateY(-50%);
-    color: #AEF359;
+    color: #1034A6;
 }
 
 button {
     width: 100%;
     padding: 12px;
-    background: #AEF359;
+    background: #1034A6;
     border: none;
     border-radius: 5px;
     color: white;
@@ -96,7 +96,7 @@ button {
 }
 
 button:hover {
-    background: #4da31f;
+    background: #5478EC;
     transform: translateY(-1px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -122,6 +122,6 @@ button:active {
 }
 
 .forgot-password a:hover {
-    color: #5fc726;
+    color: #E8EDFF;
     text-decoration: underline;
 }
