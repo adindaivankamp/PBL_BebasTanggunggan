@@ -177,7 +177,7 @@ h1 {
 }
 
 .status-icon {
-    flex-shrink: 0; /* Pastikan gambar tidak mengecil */
+    flex-shrink: 0;
 }
 
 .status-details {
