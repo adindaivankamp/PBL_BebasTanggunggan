@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url('../../Assets/BGPBL.png');
+    background-image: url('../../Assets/bg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -87,6 +87,7 @@ button {
     width: 100%;
     padding: 12px;
     background: #1034A6;
+    background: #106EBE;
     border: none;
     border-radius: 5px;
     color: white;

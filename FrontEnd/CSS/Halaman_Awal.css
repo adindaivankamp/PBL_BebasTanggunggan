@@ -4,13 +4,12 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: url('../../Assets/BGPBL.png') no-repeat center center fixed;
-    background-size: cover;
+    background: url('../../Assets/bg.png') no-repeat center center fixed;
+    color: white; /* Optional: Makes text more readable on dark background */
 }
 
 .login-container {
-    background-color: rgba(255, 255, 255, 0.4);
-    /* Slightly transparent background */
+    background-color: rgba(255, 255, 255, 0.4); /* Slightly transparent background */
     padding: 2rem;
     border-radius: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -49,5 +48,6 @@ button {
 }
 
 button:hover {
+
     background-color: #1034A6;
 }
