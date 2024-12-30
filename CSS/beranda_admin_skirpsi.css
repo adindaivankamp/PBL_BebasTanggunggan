@@ -114,7 +114,7 @@ h1 {
 
 .notification-item .view-btn {
     padding: 0.5rem 1rem;
-    background: #8BC34A;
+    background: #5478EC;
     color: white;
     border: none;
     border-radius: 5px;
@@ -158,7 +158,7 @@ h1 {
 .search-bar input {
     padding: 0.5rem;
     font-size: 1rem;
-    border: 2px solid #4caf50;
+    border: 2px solid #1034A6;
     border-radius: 5px;
     flex: 1;
     /* Memperpanjang input untuk mengisi ruang kosong */
@@ -169,7 +169,7 @@ h1 {
     padding: 0.5rem 1rem;
     font-size: 1rem;
     border: none;
-    background-color: #4caf50;
+    background-color: #1034A6;
     color: white;
     border-radius: 5px;
     cursor: pointer;
@@ -238,7 +238,7 @@ h1 {
 
 .view-btn {
     padding: 0.5rem 1rem;
-    background: #8BC34A;
+    background: #5478EC;
     color: white;
     border: none;
     border-radius: 5px;
@@ -262,7 +262,7 @@ h1 {
     top: 80px;
     right: 30px;
     width: 280px;
-    background: #8BC34A;
+    background: #5478EC;
     border-radius: 15px;
     padding: 20px;
     display: none;
@@ -435,7 +435,7 @@ h1 {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background: #8BC34A;
+    background: #5478EC;
     border-radius: 10px;
     margin-bottom: 0.8rem;
 }

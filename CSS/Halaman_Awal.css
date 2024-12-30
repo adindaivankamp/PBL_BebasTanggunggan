@@ -9,14 +9,13 @@ body {
 }
 
 .login-container {
-    background-color: rgba(255, 255, 255, 0.4);
-    /* Slightly transparent background */
+    background-color: rgba(255, 255, 255, 0.4); /* Slightly transparent background */
     padding: 2rem;
     border-radius: 30px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 495px;
     text-align: center;
-    border: 1px solid #AEF359;
+    border: 1px solid #C5D1F8;
 }
 
 h1 {
@@ -34,7 +33,7 @@ select {
     margin: 0.5rem 0;
     border: 1px solid #ccc;
     border-radius: 10px;
-    border: 1px solid #AEF359;
+    border: 1px solid #C5D1F8;
 }
 
 button {
@@ -42,12 +41,13 @@ button {
     padding: 0.5rem;
     border: none;
     border-radius: 10px;
-    background-color: #7DB934;
+    background-color: #1034A6;
     color: white;
     font-size: 1rem;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #8FD13C;
+
+    background-color: #1034A6;
 }

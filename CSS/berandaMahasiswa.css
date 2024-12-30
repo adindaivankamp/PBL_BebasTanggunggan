@@ -23,7 +23,7 @@ h1 {
 .status-section h1,
 .announcement-card h1 {
     font-size: 1.8rem;
-    color: #333;
+    color: #1034A6;
 }
 
 
@@ -144,7 +144,7 @@ h1 {
 
 .learn-more-btn {
     display: inline-block;
-    background: #9CD919;
+    background: #5478EC;
     color: white;
     padding: 0.8rem 2rem;
     border-radius: 8px;
@@ -170,7 +170,7 @@ h1 {
 }
 
 .status-button {
-    background: #9CD919;
+    background: #5478EC;
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -178,7 +178,7 @@ h1 {
 }
 
 .status-icon {
-    flex-shrink: 0; /* Pastikan gambar tidak mengecil */
+    flex-shrink: 0;
 }
 
 .status-details {
@@ -206,7 +206,7 @@ h1 {
     top: 80px;
     right: 30px;
     width: 280px;
-    background: #8BC34A;
+    background: #5478EC;
     border-radius: 15px;
     padding: 20px;
     display: none;
@@ -304,7 +304,7 @@ h1 {
 }
 
 .modal-content {
-    background: #7DB934  !important;
+    background: #C5D1F8  !important;
     padding: 2rem;
     border-radius: 15px;
     width: 90%;
@@ -364,7 +364,7 @@ h1 {
 }
 
 .upload-button {
-    background-color: #9cd919;
+    background-color: #5478EC;
     color: white;
     border: none;
     padding: 8px 16px;
@@ -377,7 +377,7 @@ h1 {
 }
 
 .upload-button:hover {
-    background-color: #7db934;
+    background-color: #5478EC;
 }
 
 .modal-header {
@@ -424,7 +424,7 @@ h1 {
 
 .learn-more-btn {
     display: inline-block;
-    background: #9CD919;
+    background: #5478EC;
     color: white;
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -443,12 +443,12 @@ h1 {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background: #9CD919;
+    background: #5478EC;
     color: white;
 }
 
 .confirm-button {
-    background: #9CD919;
+    background: #5478EC;
     color: white;
 }
 

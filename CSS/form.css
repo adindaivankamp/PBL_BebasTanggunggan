@@ -10,7 +10,7 @@ body {
 }
 
 .sidebar {
-    background-color: #C8F38F;
+    background-color: #C5D1F8;
     width: 100px;
     height: 100vh;
     display: flex;
@@ -42,7 +42,7 @@ body {
 .sidebar ul li a {
     text-decoration: none;
     font-size: 28px;
-    color: #8DDE00;
+    color: #5478EC;
     cursor: pointer;
     position: relative;
     display: inline-block;
@@ -51,7 +51,7 @@ body {
 
 .sidebar ul li a i {
     font-size: 35px;
-    color: #8DDE00;
+    color: #5478EC;
 }
 
 .tooltip {
@@ -64,7 +64,7 @@ body {
     left: 120%;
     top: 50%;
     transform: translateY(-50%);
-    background-color: #abed5b;
+    background-color: #5478EC;
     color: white;
     padding: 10px 15px;
     border-radius: 25px;
@@ -115,7 +115,7 @@ body {
 .form-container {
     width: 100%;
     max-width: 900px;
-    background-color: #8FD13C;
+    background-color: #5478EC;
     border-radius: 15px;
     padding: 30px;
     display: grid;
@@ -137,13 +137,13 @@ body {
 
 .form-group label {
     font-size: 14px;
-    color: #3e923d;
+    color: #1034A6;
     margin-bottom: 5px;
 }
 
 .form-group input {
     padding: 10px;
-    border: 1px solid #3e923d;
+    border: 1px solid #1034A6;
     border-radius: 5px;
     margin-bottom: 10px;
     font-size: 14px;
@@ -152,20 +152,20 @@ body {
 .form-group h2 {
     text-align: center;
     font-size: 27px;
-    color: #3e923d;
+    color: #5478EC;
     margin-bottom: 20px;
 }
 
 .form-group h3 {
     text-align: center;
     font-size: 1px;
-    color: #3e923d;
+    color: #1034A6;
     margin-bottom: 0px;
 }
 
 .form-group button {
-    background-color: #DFFBBC;
-    color: #3e923d;
+    background-color: #E8EDFF;
+    color: #1034A6;
     border: none;
     border-radius: 5px;
     padding: 10px;
@@ -175,7 +175,7 @@ body {
 }
 
 .form-group button:hover {
-    background-color: #91d491;
+    background-color: #E8EDFF;
 }
 
 .action-buttons {
@@ -190,14 +190,14 @@ body {
     padding: 10px;
     font-size: 14px;
     background-color: #FFFFFE;
-    color: #3e923d;
+    color: #1034A6;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .action-buttons button:hover {
-    background-color: #91d491;
+    background-color: #C5D1F8;
 }
 
 h1 {
@@ -237,7 +237,7 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #8FD13C;
+    background-color: #C5D1F8;
     padding: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
@@ -260,7 +260,7 @@ h1 {
 }
 
 .popup button {
-    background-color: #7DB934;
+    background-color: #5478EC;
     color: white;
     border: none;
     border-radius: 5px;

@@ -22,7 +22,7 @@ body {
 .container h1 {
     font-size: 24px;
     font-weight: 600;
-    color: #72b626; 
+    color: #1034A6; 
     text-align: center;
     margin-bottom: 10px;
 }
@@ -50,7 +50,7 @@ body {
 
 .form-group input[type="password"] {
     padding: 12px;
-    border: 2px solid #d4e157;
+    border: 2px solid #5478EC;
     border-radius: 5px;
     background-color: #f0f9e8;
     width: 100%;
@@ -64,7 +64,7 @@ body {
 }
 
 .form-group .button-container button {
-    background-color: #72b626; 
+    background-color: #1034A6; 
     color: white;
     padding: 10px 20px;
     border: none;
@@ -75,7 +75,7 @@ body {
 }
 
 .form-group .button-container button:hover {
-    background-color: #5e9d22;
+    background-color: #5478EC;
 }
 
 .container .link-footer {
