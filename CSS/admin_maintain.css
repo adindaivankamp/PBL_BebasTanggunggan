@@ -1,0 +1,522 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../Assets/BGPBL.png');
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    background-color: #C8F38F;
+    width: 100px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+}
+
+.sidebar img {
+    width: 70px;
+    margin-bottom: 40px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 25px 0;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    font-size: 28px;
+    color: #8DDE00;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    font-size: 18px;
+}
+
+.sidebar ul li a i {
+    font-size: 24px;
+}
+
+.container {
+    margin-left: 100px;
+    padding: 20px;
+}
+
+.search-bar-container{
+    width: 1000px;
+    margin-left: 100px;
+    margin-right: 10px; 
+    display: flex;
+    padding: 1rem 2rem;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.nav-icons {
+    
+    display: flex-end;
+    gap: 1rem;
+    margin-left: 100px;
+}
+
+.nav-icons a {
+    width: 35px;
+    height: 35px;
+    background: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    text-decoration: none;
+}
+
+.search-bar {
+    display: flex;
+    width: 1000px;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    margin-right: 1px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    width: 100%;
+}
+
+.search-bar button {
+    background-color: #3e923d;
+    border: none;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #C8F38F;
+}
+
+
+.profile-button {
+    background-color: transparent;  
+    border: none;                   
+    color: #4CAF50;                 
+    font-size: 24px;                
+    padding: 8px;                    
+    cursor: pointer;               
+}
+
+.profile-button:hover {
+    color: #45a049;                
+}
+
+.profile-popup {
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    width: 280px;
+    background: #8BC34A;
+    border-radius: 15px;
+    padding: 20px;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.profile-popup.show {
+    display: block;
+}
+
+.profile-picture {
+    width: 60px;
+    height: 60px;
+    background: white;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+}
+
+.profile-name {
+    color: black;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.profile-id {
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.profile-icon {
+    position: absolute; /* Posisikan secara absolut */
+    top: 0; /* Pastikan berada di bagian atas */
+    right: 0; /* Tempatkan di sisi kanan layar */
+    margin: 25px; /* Tambahkan sedikit jarak dari tepi */
+}
+
+.profile-icon .nav-icons {
+    display: flex; /* Agar ikon rapi */
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-icon a {
+    text-decoration: none; /* Hapus garis bawah jika ada */
+}
+
+.profile-icon i {
+    font-size: 20px; /* Sesuaikan ukuran ikon */
+    color: #000; /* Warna ikon (bisa disesuaikan) */
+}
+
+.profile-menu {
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.profile-menu-item {
+    background: white;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+    width: 100%;
+    font-size: 14px;
+}
+
+.profile-menu-item:last-child {
+    margin-bottom: 0;
+}
+
+.profile-menu-item:hover {
+    background: #f0f0f0;
+}
+
+.logout-btn {
+    background: white;
+    border-radius: 8px;
+    padding: 8px;
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
+    width: 50%;
+    margin: 10px auto 0;
+    display: block;
+    border: none;
+    font-size: 14px;
+}
+
+.logout-btn:hover {
+    background: #f0f0f0;
+}
+
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.controls .sort-by {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.controls button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.controls select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.controls input {
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.controls span {
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    background-color: white;
+    font-size: 14px;
+}
+
+table thead {
+    background-color: #8FD13C;
+    color: white;
+    table-layout: fixed;
+}
+
+table th, table td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    width: 10px;
+    max-width: 150px;
+    word-wrap: break-word; /* Add this line to wrap text */
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.edit-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.edit-button:hover {
+    background-color: #45a049;
+}
+
+.fa {
+    font-size: 20px; 
+    margin-right: 8px; 
+    vertical-align: middle; 
+    padding: 12px;
+}
+
+.icon-only-button {
+    background-color: transparent;  
+    border: none;                   
+    color: #3e923d;;                 
+    font-size: 24px;                
+    padding: 10px;                
+    cursor: pointer;              
+    display: inline-flex;
+    justify-content: center;         
+    align-items: center;            
+}
+
+.icon-only-button:hover {
+    background-color: rgba(92, 180, 95, 0.1);
+}
+
+.trash-button {
+    background-color: transparent;
+    border: none;
+    color: #333;
+    font-size: 14px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.trash-button:hover {
+    color: #666;
+}
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-title);
+    position: absolute;
+    left: 120%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #8FD13C;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: lighter;
+    text-transform: capitalize;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* <div class="pagination">
+    <button class="prev-page">Prev</button>
+    <div class="page-number">1</div>
+    <button class="next-page">Next</button>
+</div> */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination .prev-page, .pagination .next-page {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.pagination button:hover {
+    background-color: #45a049;
+}
+
+.page-number {
+    background-color: #4CAF50;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    border-color: transparent;
+    margin-right: 10px;
+}
+
+.page-number:hover {
+    background-color: #45a049;
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; 
+    max-width: 500px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: modalopen 0.4s;
+}
+
+@keyframes modalopen {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal input[type="text"], 
+.modal input[type="email"], 
+.modal input[type="password"], 
+.modal textarea, 
+.modal input[type="date"],
+.modal select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.modal input[type="text"]:read-only,
+.modal input[type="email"]:read-only,
+.modal input[type="password"]:read-only,
+.modal textarea:read-only,
+.modal input[type="date"]:read-only {
+    background-color: #928f8f;
+}
+
+.modal label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
+    color: #333;
+}
+
+.modal button{
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.modal .edit-button-modal {
+    background-color: #4CAF50;
+}
+
+.modal .edit-button-modal:hover {
+    background-color: #45a049;
+}
+
+.modal .cancel-button-modal {
+    background-color: #979797;
+}
+
+.modal .cancel-button-modal:hover {
+    background-color: #7a7a7a;
+}

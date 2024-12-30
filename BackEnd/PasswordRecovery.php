@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
     // Jika email ditemukan, simpan ke session dan alihkan ke halaman resetPass.html
     if (sqlsrv_fetch_array($stmt)) {
         $_SESSION['email'] = $email;
-        header("Location: ../FrontEnd/HTML/resetPass.html");
+        header("Location: ../FrontEnd/HTML/resetPass.php");
         exit();
     } else {
         echo "<script>alert('Email tidak ditemukan!'); window.history.back();</script>";

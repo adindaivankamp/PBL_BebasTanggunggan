@@ -1,29 +1,21 @@
 <?php
 session_start();
 
-// Include file Connection.php untuk koneksi ke database
-include_once 'Connection.php';
+include_once 'Class/Connection.php';
+include_once 'Class/DataProcessing.php';
+include_once 'Class/JSONResponse.php';
 
-$db = new Database();
-$conn = $db->connect();
+$dataProcess = new DataProcessing();
 
-// Pastikan koneksi tersedia
-if (!$conn) {
-    die("Connection failed: " . print_r(sqlsrv_errors(), true));
-}
-
-// Fungsi untuk memproses upload file
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Ambil data dari session
-    $sql = "SELECT * FROM dbo.pdf_files";
-
-    // Eksekusi query
-    $stmt = sqlsrv_query($conn, $sql);
-    $data = [];
-    while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-        $data[] = $row;
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    if (isset($_GET['announcement_id'])) {
+        $announcement_id = $_GET['announcement_id'];
+        $data = $dataProcess->GetData('dbo.pdf_files', '*', "id = $announcement_id");
+        echo $data;
+    } else {
+        $data = $dataProcess->GetData('dbo.pdf_files', '*');
+        echo $data;
     }
-
-
-    echo json_encode($data);
+} else {
+    echo JSONResponse::Error("Invalid request method");
 }

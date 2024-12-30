@@ -2,47 +2,78 @@
 session_start();
 
 // Include file Connection.php untuk koneksi ke database
-include_once 'Connection.php';
+require_once 'Class/Connection.php';
+require_once 'Class/JSONResponse.php';
+require_once 'Class/UploadFile.php';
 
-$db = new Database();
-$conn = $db->connect();
+if(session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
-// Pastikan koneksi tersedia
-if (!$conn) {
-    die("Connection failed: " . print_r(sqlsrv_errors(), true));
+if(!isset($_SESSION['username'])) {
+    echo JSONResponse::Unauthorized();
+    return;
+}
+
+if(isset($_SESSION['role'])) {
+    if($_SESSION['role'] == "admin") {
+        echo JSONResponse::Unauthorized();
+        return;
+    }
+}
+
+if(isset($_POST['token'])) {
+    if($_POST["token"] != $_SESSION["token"]){
+        echo JSONResponse::Error("Invalid token");
+        return;
+    }
+} else {
+    if($_GET["token"] != $_SESSION["token"]){
+        echo JSONResponse::Error("Invalid token");
+        return;
+    }
 }
 
 // Fungsi untuk memproses upload file
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     // Ambil data dari session
-    $id_user = $_SESSION['user_id'] ?? null;
-    $nama_user = $_SESSION['user_name'] ?? null;
+    $id_user = $_SESSION['nim'] ?? null;
+    $nama_user = $_SESSION['username'] ?? null;
 
     if (!$id_user || !$nama_user) {
-        $_SESSION['alert_message'] = "Session tidak valid.";
-        header("Location: ../FrontEnd/HTML/upload.html");
-        exit;
+        echo JSONResponse::Error("User not found");
+        return;
     }
 
-    //Ambil Prodi Menggunakan Session id user
-    $sql = "SELECT * FROM dbo.mahasiswa_login WHERE id = $id_user";
+    $kategori = $_POST['kategori'] ?? null;
 
-    $stmt = sqlsrv_query($conn, $sql);
-    $data = [];
-    while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-        $data[] = $row;
+    if (!$kategori) {
+        echo JSONResponse::Error("Kategori not found");
+        return;
     }
 
-    $prodi = $data[0]['program_studi'];
+    // Proses file upload
+    if (isset($_POST['file'])) {
+        // File is base64 encoded
+        $file = $_POST['file'];
+        // data:application/pdf;base64,JVBERi0xLjcN
+        $file = explode(',', $file);
+        $fileData = base64_decode($file[1]);
 
-    // Proses upload file
-    if (isset($_FILES['file'])) {
-        $file = $_FILES['file'];
+        $fileType = $file[0];
+        $fileType = explode(';', $fileType);
+        $fileType = explode(':', $fileType[0]);
+        $fileType = $fileType[1];
 
-        $nama_file = basename($file['name']);
-        $ukuran_file = $file['size'];
-        $tipe_file = $file['type'];
-        $tmp_file = $file['tmp_name'];
+        $fileName = $_POST['fileName'] ?? null;
+        $fileSize = $_POST['fileSize'] ?? null;
+
+        if (!$fileName || !$fileSize) {
+            echo JSONResponse::Error("File name or file size not found");
+            return;
+        }
 
         // Tentukan folder untuk menyimpan file
         $upload_dir = 'Upload/'; // Pastikan folder ini memiliki izin tulis
@@ -50,42 +81,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             mkdir($upload_dir, 0777, true);
         }
 
-        $file_path = $upload_dir . $nama_file;
+        $kategori_dir = $upload_dir . $kategori . '/';
+        if (!is_dir($kategori_dir)) {
+            mkdir($kategori_dir, 0777, true);
+        }
+
+        $upload_dir = $kategori_dir;
+
+        $file_path = $upload_dir . $fileName;
 
         // Simpan file ke server
-        if (move_uploaded_file($tmp_file, $file_path)) {
-            // Simpan informasi ke database
-            $tanggal_upload = date('Y-m-d H:i:s');
-            $sql = "INSERT INTO dbo.upload_dokumen (id, nama, kategori, jenis_dokumen,file_path, nama_file, ukuran_file, tipe_file, tanggal_upload, notes)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-            $params = [
-                $id_user, $nama_user, $kategori, $jenis_dokumen,$file_path, $nama_file, $ukuran_file, $tipe_file, $tanggal_upload, "Masih dalam proses pengecekan"
-            ];
-
-            $stmt = sqlsrv_prepare($conn, $sql, $params);
-
-            if ($stmt && sqlsrv_execute($stmt)) {
-                $_SESSION['alert_message'] = "File berhasil diunggah!";
-                header("Location: ../FrontEnd/HTML/upload.html");
-                exit;
-            } else {
-                $_SESSION['alert_message'] = "Gagal menyimpan data ke database.";
-                header("Location: ../FrontEnd/HTML/upload.html");
-                exit;
-            }
+        if (file_put_contents($file_path, $fileData)) {
+            // Insert file data to database
+            $upload = new UploadFile();
+            // UploadFileQueryOnly($nim, $kategori, $nama_file, $file_path, $extra_parameter = [])
+            echo $upload->UploadFileQueryOnly($kategori, $fileName, $file_path, $_POST);
         } else {
-            $_SESSION['alert_message'] = "Gagal mengunggah file.";
-            header("Location: ../FrontEnd/HTML/upload.html");
-            exit;
+            echo JSONResponse::Error("Failed to upload file");
         }
-    } else {
-        $_SESSION['alert_message'] = "Tidak ada file yang diunggah.";
-        header("Location: ../FrontEnd/HTML/upload.html");
-        exit;
     }
-} else {
-    $_SESSION['alert_message'] = "Metode request tidak valid.";
-    header("Location: ../FrontEnd/HTML/upload.html");
-    exit;
 }

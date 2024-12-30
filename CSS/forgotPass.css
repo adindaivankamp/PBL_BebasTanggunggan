@@ -1,0 +1,99 @@
+body {
+    background-image: url('../Assets/BGPBL.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Poppins', Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container {
+    background-color: #ffffff;
+    /* Warna putih untuk kotak */
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    width: 400px;
+    /* Lebar kotak */
+}
+
+.container h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #72b626;
+    /* Warna hijau */
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.container p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #555555;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555555;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="email"] {
+    padding: 10px;
+    border: 2px solid #d4e157;
+    border-radius: 5px;
+    background-color: #f0f9e8;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.form-group .button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.form-group button {
+    background-color: #72b626;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.form-group button:hover {
+    background-color: #5e9d22;
+}
+
+.container a {
+    font-size: 14px;
+    font-weight: 400;
+    color: #3498db;
+    text-decoration: none;
+}
+
+.container a:hover {
+    text-decoration: underline;
+}
+
+.link-footer {
+    /* text-align: center; */
+    margin-top: 20px;
+}
