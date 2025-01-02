@@ -335,7 +335,7 @@ if (isset($_SESSION['role'])) {
             if (event.target.classList.contains('meta')) {
                 // 
                 const data = JSON.parse(event.target.getAttribute('data-item'));
-                const alasan = document.getElementById('alasan').value;
+                let alasan = document.getElementById('alasan').value;
                 if (alasan == "") {
                     alert("Alasan tidak boleh kosong");
                     return;

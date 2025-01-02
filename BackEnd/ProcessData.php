@@ -11,15 +11,6 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-if(isset($_GET['AWD'])) {
-    if($_GET['AWD'] == "true") {
-        $adminData = new DataAdmin();
-        echo $adminData->InsertAdmin("admin".rand(), "admin", "admin", "admin skripsi", "12312312".rand());
-        return;
-    }
-    exit;
-}
-
 if (!isset($_SESSION['username'])) {
     die(JSONResponse::Unauthorized());
     
@@ -91,7 +82,7 @@ switch ($type) {
                 $password = $_GET['password'] ?? $_POST['password'] ?? null;
                 $nim = $_GET['nim'] ?? $_POST['nim'] ?? null;
                 $nama = $_GET['nama'] ?? $_POST['nama'] ?? null;
-                $program_studi = $_GET['program_studi'] ?? $_POST['program_studi'] ?? null;
+                $program_studi = $_GET['prodi'] ?? $_POST['prodi'] ?? null;
                 $email = $_GET['email'] ?? $_POST['email'] ?? null;
 
                 if ($id == null || $username == null || $password == null || $nim == null || $nama == null || $program_studi == null || $email == null) {
@@ -314,6 +305,54 @@ switch ($type) {
                 echo $data->EditFile($id, $nama, $kategori, $jenis_dokumen, $status_validasi, $notes);
                 break;
             }
+            case "GetAllAnnouncement":
+                echo $data->GetAllAnnouncement();
+                break;
+            case "GetAnnouncement":
+                $announcement_id = $_GET['announcement_id'] ?? $_POST['announcement_id'] ?? null;
+                if ($announcement_id == null) {
+                    echo JSONResponse::Error("Invalid parameter announcement_id");
+                    return;
+                }
+                echo $data->GetAnnouncement($announcement_id);
+                break;
+            case "InsertAnnouncement":
+                // InsertAnnouncement($nama, $kategori, $jenis_dokumen, $status_validasi, $notes)
+                $file_name = $_GET['file_name'] ?? $_POST['file_name'] ?? null;
+                $file = $_GET['file'] ?? $_POST['file'] ?? null;
+
+                if ($file_name == null || $file == null) {
+                    echo JSONResponse::Error("Invalid parameter file_name or file");
+                    return;
+                }
+
+                echo $data->InsertAnnouncement($file_name, $file);
+                break;
+            case "UpdateAnnouncement": 
+                $id = $_GET['id'] ?? $_POST['id'] ?? null;
+                $file_name = $_GET['file_name'] ?? $_POST['file_name'] ?? null;
+
+                if ($id == null || $file_name == null) {
+                    echo JSONResponse::Error("Invalid parameter id or file_name");
+                    return;
+                }
+
+                echo $data->EditAnnouncement($id, $file_name);
+                break;
+            case "DeleteAnnouncement":
+                $id = $_GET['id'] ?? $_POST['id'] ?? null;
+                if ($id == null) {
+                    echo JSONResponse::Error("Invalid parameter id");
+                    return;
+                }
+
+                if(str_contains($id, ",")) {
+                    $id = explode(",", $id);
+                }
+
+                echo $data->DeleteAnnouncement($id);
+                break;
+
             default:
                 echo JSONResponse::Error("Invalid request function");
         }

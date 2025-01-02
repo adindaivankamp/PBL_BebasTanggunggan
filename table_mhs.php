@@ -184,7 +184,7 @@ if (isset($_SESSION['role'])) {
             <input type="text" id="prodi" name="prodi">
             <label for="email">Email</label>
             <input type="email" id="email" name="email">
-            <button class="edit-button-modal">Edit</button>
+            <button class="edit-button-modal">Save</button>
             <button class="cancel-button-modal">Cancel</button>
         </div>
     </div>
@@ -441,22 +441,19 @@ if (isset($_SESSION['role'])) {
             formData.append('id', id);
             formData.append('username', username);
             formData.append('password', password);
-            formData.append('NIM', NIP);
+            formData.append('nim', NIP);
             formData.append('nama', nama);
             formData.append('prodi', prodi);
             formData.append('email', email);
 
-            fetch(`BackEnd/ProcessData.php?type=mahasiswa&func=EditMahasiswa&token=${document.cookie.split('token=')[1].split(';')[0]}`, {
+            fetch(`BackEnd/ProcessData.php?type=mahasiswa&func=UpdateMahasiswa&token=${document.cookie.split('token=')[1].split(';')[0]}`, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
                 body: formData
             }).then((response) => {
                 return response.json();
             }).then((response) => {
                 if (response.status != "error") {
-                    alert(response.message);
+                    alert(response.data);
                     window.location.reload();
                 } else {
                     alert(response.message);

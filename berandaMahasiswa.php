@@ -381,7 +381,7 @@ if (isset($_SESSION['role'])) {
               </div>
               <div class="announcement-details">
                 <h3>${v.file_name}</h3>
-                <a href="BackEnd/Upload/${v.file_path}" target="blank" class="learn-more-btn">View</a>
+                <a href="BackEnd/${v.file_path.includes("Upload/") ? v.file_path : "Upload/" + v.file_path}" target="blank" class="learn-more-btn">View</a>
               </div>
             </div>
           `;

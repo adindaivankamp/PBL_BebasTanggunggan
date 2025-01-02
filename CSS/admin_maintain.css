@@ -303,7 +303,23 @@ table tbody tr:hover {
     background-color: #f1f1f1;
 }
 
-.edit-button {
+table td:last-child {
+    text-align: right;
+}
+table td:last-child button {
+    background-color: #5478EC;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+table td:last-child button:hover {
+    background-color: #1034A6;
+}
+
+.edit-button,
+.add-button {
     background-color: #1034A6;
     color: white;
     border: none;
@@ -396,7 +412,7 @@ table tbody tr:hover {
 }
 
 .pagination .prev-page, .pagination .next-page {
-    background-color: #4CAF50;
+    background-color: #5478EC;
     color: white;
     border: none;
     padding: 6px 12px;
@@ -406,11 +422,11 @@ table tbody tr:hover {
 }
 
 .pagination button:hover {
-    background-color: #45a049;
+    background-color: #1034A6;
 }
 
 .page-number {
-    background-color: #4CAF50;
+    background-color: #5478EC;
     color: white;
     padding: 6px 12px;
     border-radius: 4px;
@@ -420,7 +436,7 @@ table tbody tr:hover {
 }
 
 .page-number:hover {
-    background-color: #45a049;
+    background-color: #1034A6;
 }
 
 .modal {
@@ -489,6 +505,15 @@ table tbody tr:hover {
     background-color: #928f8f;
 }
 
+.modal input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
 .modal label {
     font-size: 16px;
     margin-bottom: 5px;
@@ -505,12 +530,12 @@ table tbody tr:hover {
     margin-top: 10px;
 }
 
-.modal .edit-button-modal {
-    background-color: #4CAF50;
+.modal .edit-button-modal, .modal .add-button-modal {
+    background-color: #5478EC;
 }
 
-.modal .edit-button-modal:hover {
-    background-color: #45a049;
+.modal .edit-button-modal:hover, .modal .add-button-modal:hover {
+    background-color: #1034A6;
 }
 
 .modal .cancel-button-modal {
